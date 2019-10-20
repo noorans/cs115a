@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:adjustViewBounds="true"
-            android:src="@drawable/bluerectangle2" />
+            android:src="@drawable/bluerectangle" />
 
         <TextView
             android:id="@+id/sugarAnalysisTitle"
@@ -32,8 +32,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
-            android:textSize="25dp"
-            />
+            android:textSize="25dp"/>
 
         <ImageView
             android:id="@+id/whiteLineTopLabel"
@@ -58,7 +57,7 @@
             android:layout_alignBottom="@id/toplabel"
             android:layout_marginRight="7dp"
             android:layout_marginBottom="30dp"
-            android:src="@drawable/settingsicon1" />
+            android:src="@drawable/settings" />
 
     </RelativeLayout>
 
@@ -71,9 +70,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="-30dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/bluerectangle2" />
+            android:src="@drawable/bluerectangle" />
 
         <ImageView
             android:id="@+id/progressIcon"
@@ -82,8 +81,8 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginRight="290dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/progressicon1" />
+            android:layout_marginTop="1.5dp"
+            android:src="@drawable/progreschart1" />
 
         <TextView
             android:id="@+id/progressLabel"
@@ -92,7 +91,7 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="23dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="28dp"
             android:text="@string/progress_label"
             android:textColor="@color/colorWhite"
             android:textSize="15dp"
@@ -104,9 +103,9 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="-1dp"
             android:layout_marginRight="102dp"
-            android:src="@drawable/weighticon1" />
+            android:src="@drawable/bmiicon1" />
 
         <TextView
             android:id="@+id/bmiLabel"
@@ -115,7 +114,7 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="141dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="27.8dp"
             android:text="@string/bmi_label"
             android:textColor="@color/colorWhite"
             android:textSize="15dp"
@@ -128,7 +127,7 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="-1.4dp"
             android:src="@drawable/bellicon1" />
 
         <TextView
@@ -138,7 +137,7 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="220dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="27.8dp"
             android:text="@string/bell_label"
             android:textColor="@color/colorWhite"
             android:textSize="15dp"
@@ -151,7 +150,7 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="290dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="-1dp"
             android:src="@drawable/usericon1" />
 
         <TextView
@@ -161,7 +160,7 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="310dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="27.8dp"
             android:text="@string/contact_label"
             android:textColor="@color/colorWhite"
             android:textSize="15dp"
