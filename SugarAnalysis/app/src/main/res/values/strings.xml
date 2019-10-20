@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sugar Analysis</string>
+
+    <string name="sugar_analysis">SUGAR ANALYSIS</string>
+    <string name="progress_label">PROGRESS</string>
+    <string name="bmi_label">BMI</string>
+    <string name="bell_label">ALERTS</string>
+    <string name="contact_label">CONTACTS</string>
+
 </resources>
