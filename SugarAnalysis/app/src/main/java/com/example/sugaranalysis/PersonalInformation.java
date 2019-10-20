@@ -11,4 +11,9 @@ public class PersonalInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_information);
     }
+
+    public void saveInformation(){
+
+    }
+
 }
