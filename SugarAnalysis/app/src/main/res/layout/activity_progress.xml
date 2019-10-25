@@ -24,6 +24,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sugar_analysis"
+            android:onClick="clickHome"
+            android:contextClickable="true"
             android:layout_alignLeft="@id/toplabel"
             android:layout_alignTop="@id/toplabel"
             android:layout_alignRight="@id/toplabel"
@@ -82,8 +84,8 @@
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginRight="290dp"
             android:layout_marginTop="1.5dp"
-            android:clickable="true"
             android:onClick="clickProgress"
+            android:contextClickable="true"
             android:src="@drawable/progreschart1" />
 
         <TextView
@@ -94,11 +96,11 @@
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="23dp"
             android:layout_marginTop="28dp"
+            android:onClick="clickProgress"
+            android:contextClickable="true"
             android:text="@string/progress_label"
             android:textColor="@color/colorWhite"
             android:textSize="15dp"
-            android:clickable="true"
-            android:onClick="clickProgress"
             android:textStyle="bold" />
 
         <ImageView
@@ -170,13 +172,22 @@
             android:textSize="15dp"
             android:textStyle="bold"/>
 
-
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_marginTop="30dp"
+    <TextView
+        android:id="@+id/weeklyProgressLabel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="WEEKLY PROGRESS"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginBottom="30dp"
+        android:id= "@+id/barchart"/>
 </LinearLayout>
