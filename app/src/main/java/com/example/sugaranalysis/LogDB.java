@@ -3,17 +3,13 @@ package com.example.sugaranalysis;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
-import android.util.Log;
 
 import com.example.sugaranalysis.Objects.LogObject;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LogDB extends SQLiteOpenHelper {
@@ -39,7 +35,7 @@ public class LogDB extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         // CREATE TABLE  TABLE_NAME (_id INTEGER PRIMARY KEY, NDB STRING, NAME STRING, MEASURE STRING, UNIT STRING, VALUE STRING);
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY, AVG_BMI STRING, TIME STRING);");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY, AVG_BMI STRING, TIME STRING, HEIGHT STRING, WEIGHT STRING);");
 
     }
     public int count() {
@@ -58,20 +54,22 @@ public class LogDB extends SQLiteOpenHelper {
         }
     }
 
-    public void addEntry(String avg_bmi, String time) throws SQLiteException {
+    public void addEntry(String avg_bmi, String time, String height, String weight) throws SQLiteException {
         db = getWritableDatabase();
         long count = count();
         if (count < 876) {
             ContentValues cv = new ContentValues();
             cv.put("AVG_BMI", avg_bmi);
             cv.put("TIME" , time);
+            cv.put("HEIGHT", height);
+            cv.put("WEIGHT", weight);
             db.insert(TABLE_NAME, null, cv);
         }
     }
 
 
     //This method will be used when we want to query anything in our table
-    public Cursor foodQuery( String filter) {
+    public Cursor logQuery( String filter) {
         SQLiteDatabase db = getReadableDatabase();
 
 
@@ -94,23 +92,26 @@ public class LogDB extends SQLiteOpenHelper {
     //NOT FINALIZED
     //This method will be used to get all log objects from the table to display them
     public List<LogObject> fillList(List<LogObject> foodItems, String filter) {
-        Cursor cursor = foodQuery(filter);
+        Cursor cursor = logQuery(filter);
 
         if(cursor != null & cursor.getCount() > 0) {
             cursor.moveToFirst();
             int index;
-            String name;
-            String measure;
-            String value;
+            String avg_bmi;
+            String time;
+            String height;
+            String weight;
 
             do{
-                index = cursor.getColumnIndex("NAME");
-                name = cursor.getString(index);
-                index = cursor.getColumnIndex("MEASURE");
-                measure = cursor.getString(index);
-                index = cursor.getColumnIndex("VALUE");
-                value = cursor.getString(index);
-                LogObject fi = new LogObject(name, measure, value);
+                index = cursor.getColumnIndex("AVG_BMI");
+                avg_bmi = cursor.getString(index);
+                index = cursor.getColumnIndex("TIME");
+                time = cursor.getString(index);
+                index = cursor.getColumnIndex("HEIGHT");
+                height = cursor.getString(index);
+                index = cursor.getColumnIndex("WEIGHT");
+                weight = cursor.getString(index);
+                LogObject fi = new LogObject(avg_bmi, time, height, weight);
                 foodItems.add(fi);
             }while (cursor.moveToNext());
             cursor.close();

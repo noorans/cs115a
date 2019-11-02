@@ -2,69 +2,63 @@ package com.example.sugaranalysis.Objects;
 
 public class LogObject {
 
-    //private String itemNDB; // primary key on https://ndb.nal.usda.gov/ndb/
-    private String itemName;
-    private String itemMeasure;
-    //private String itemUnit;
-    private String itemValue;
+    //private String itemNDB;
+    private String logAvg_bmi;
+    private String logTime;
+    private String logHeight;
+    private String logWeight;
 
+    //Constructor
     public LogObject() {
-        //itemNDB = "";
-        itemName = "";
-        itemMeasure = "";
-        //itemUnit = "";
-        itemValue = "";
+        logAvg_bmi = "";
+        logTime = "";
+        logHeight = "";
+        logWeight = "";
+
     }
 
-    public LogObject(String itemName,String itemMeasure, String itemValue) {
+    public LogObject(String logAvg_bmi, String logTime, String logHeight, String logWeight) {
         //this.itemNDB = itemNDB;
-        this.itemName = itemName;
-        this.itemMeasure = itemMeasure;
-        //this.itemUnit = itemUnit;
-        this.itemValue = itemValue;
+        this.logAvg_bmi = logAvg_bmi;
+        this.logTime = logTime;
+        this.logHeight = logHeight;
+        this.logWeight = logWeight;
     }
 
     public String getItemName() {
-        return itemName;
+        return logAvg_bmi;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setLogAvg_bmi(String logAvg_bmi) {
+        this.logAvg_bmi = logAvg_bmi;
     }
 
-    //public String getItemNDB() {
-    //return itemNDB;
-    //}
-
-    // public void setItemNDB(String itemNDB) {
-    //this.itemNDB = itemNDB;
-    //}
-
-    public String getItemMeasure() {
-        return itemMeasure;
+    public String getLogTime() {
+        return logTime;
     }
 
-    public void setItemMeasure(String itemMeasure) {
-        this.itemMeasure = itemMeasure;
+    public void setLogTime(String logTime) {
+        this.logTime = logTime;
     }
 
-//    public String getItemUnit() {
-//        return itemUnit;
-//    }
-//
-//    public void setItemUnit(String itemUnit) {
-//        this.itemUnit = itemUnit;
-//    }
-
-    public String getItemValue() {
-        return itemValue;
+    public String getLogHeight() {
+        return logHeight;
     }
 
-    public void setItemValue(String itemValue) {
-        this.itemMeasure = itemValue;
+    public void setLogHeight(String logHeight) {
+        this.logHeight = logHeight;
+    }
+
+    public String getLogWeight() {
+        return logWeight;
+    }
+
+    public void setLogWeight(String logWeight) {
+        this.logWeight = logWeight;
     }
 
     //You can modify this if you want
+    /*
     @Override
     public String toString() {
         return "FoodItem{" +
@@ -76,6 +70,6 @@ public class LogObject {
         return  "fl oz: " + this.getItemMeasure() + "\n" +
                 this.getItemValue() + " "+
                 "mg\n";
-    }
+    }*/
 
 }
