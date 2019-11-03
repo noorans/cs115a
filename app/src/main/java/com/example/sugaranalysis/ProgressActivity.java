@@ -113,4 +113,11 @@ public class ProgressActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // start new activity to view BMI acitvity
+    public void clickBMI(View v) {
+        Intent intent = new Intent(ProgressActivity.this, BMIActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+    }
+
 }

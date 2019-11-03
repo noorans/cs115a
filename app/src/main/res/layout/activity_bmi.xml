@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -69,7 +68,6 @@
             android:id="@+id/toplabel2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="-30dp"
             android:adjustViewBounds="true"
             android:src="@drawable/bluerectangle" />
@@ -120,6 +118,7 @@
             android:layout_marginLeft="141dp"
             android:layout_marginTop="27.8dp"
             android:text="@string/bmi_label"
+            android:onClick="clickBMI"
             android:textColor="@color/colorWhite"
             android:textSize="15dp"
             android:textStyle="bold" />
@@ -131,7 +130,6 @@
             android:layout_alignLeft="@id/toplabel2"
             android:layout_alignRight="@id/toplabel2"
             android:layout_marginLeft="80dp"
-            android:onClick="clickBMI"
             android:layout_marginTop="-1.4dp"
             android:src="@drawable/bellicon1" />
 
@@ -174,10 +172,99 @@
 
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/listview"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/circle"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginLeft="114dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/circle" />
+
+        <com.daasuu.cat.CountAnimationTextView
+            android:id="@+id/result"
+            android:layout_width="147dp"
+            android:layout_height="177dp"
+            android:layout_alignLeft="@+id/circle"
+            android:layout_alignTop="@+id/circle"
+            android:layout_alignRight="@+id/circle"
+            android:layout_alignBottom="@+id/circle"
+            android:layout_marginTop="-30dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:paddingTop="25dp"
+            android:textColor="@color/colorBlue"
+            android:textSize="70dp" />
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorBlue"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="@string/weight"
+        android:textColor="@color/colorBlue"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorLightBlue"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="6"
+        android:inputType="number|numberDecimal"
+        android:textSize="15dp" />
+
+    <TextView
+        android:textColor="@color/colorBlue"
+        android:text="@string/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorLightBlue"
+        android:ems="6"
+        android:backgroundTint="@color/colorBlue"
+        android:inputType="number|numberDecimal"
+        android:textSize="15dp"/>
+
+    <Button
+        android:id="@+id/calculateBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/colorBlue"
+        android:onClick="calculateBMI"
+        android:padding="20dp"
+
+        android:text="@string/calculateBMI"
+        android:textColor="@color/colorWhite" />
+
 
 </LinearLayout>
