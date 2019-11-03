@@ -69,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // start new activity to view BMI acitvity
+    public void clickBMI(View v) {
+        Intent intent = new Intent(MainActivity.this, BMIActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+    }
+
     // THE FOLLOWING OBSOLETE CODE FOR THE MENU INFLATOR
 
     /*@Override
