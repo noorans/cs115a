@@ -14,11 +14,13 @@ public class CustomeAdapter extends BaseAdapter {
 
     private Context context;
     public static ArrayList<EditModel> editModelArrayList;
+    //this is public static so we can use it in any activity
 
     public CustomeAdapter(Context context, ArrayList<EditModel> editModelArrayList) {
 
         this.context = context;
         this.editModelArrayList = editModelArrayList;
+        //using an ArrayList of the objects of the EditModel class
     }
 
     @Override
@@ -70,8 +72,9 @@ public class CustomeAdapter extends BaseAdapter {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
+            } //the initial state of the edittext
 
+            //when the user enters any text value, this method is called
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 editModelArrayList.get(position).setEditTextValue(holder.editText.getText().toString());

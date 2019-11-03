@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ImageView progressButton, bmiButton, alertsButton, contactsButton, settingsButton;
-    private Button btn;
-    private ListView lv;
+    private Button sugarInputbtn;
+    private ListView sugarInputlv;
     private CustomeAdapter customeAdapter;
     public ArrayList<EditModel> editModelArrayList;
 
@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        lv = (ListView) findViewById(R.id.listView);
-        btn = (Button) findViewById(R.id.btn);
+        sugarInputlv = (ListView) findViewById(R.id.listView);
+        sugarInputbtn = (Button) findViewById(R.id.sugarInputbtn);
 
         editModelArrayList = populateList();
         customeAdapter = new CustomeAdapter(this,editModelArrayList);
-        lv.setAdapter(customeAdapter);
+        sugarInputlv.setAdapter(customeAdapter);
 
 
         // buttons/icons
@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        // start new activity to view blood sugar input
+        sugarInputbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,NextActivity.class);
@@ -75,11 +76,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    //calling EditModel
     private ArrayList<EditModel> populateList(){
 
         ArrayList<EditModel> list = new ArrayList<>();
 
+        //giving inital values to EditModel
         for(int i = 0; i < 8; i++){
             EditModel editModel = new EditModel();
             editModel.setEditTextValue(String.valueOf(i));
