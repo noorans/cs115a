@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".NextActivity"></activity>
+=======
+        <activity android:name=".BMIActivity"></activity>
+>>>>>>> 6dc78536325df8b30fa4da75fcd3eda4ba10ff89
         <activity android:name=".ProgressActivity" />
         <activity android:name=".PersonalInformation" />
         <activity android:name=".SettingsActivity" />
