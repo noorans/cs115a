@@ -107,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.subject_menu, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -121,5 +120,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }*/
 }
-
-
