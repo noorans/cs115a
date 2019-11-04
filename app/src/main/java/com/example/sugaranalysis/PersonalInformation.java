@@ -2,7 +2,9 @@ package com.example.sugaranalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class PersonalInformation extends AppCompatActivity {
 
@@ -12,7 +14,10 @@ public class PersonalInformation extends AppCompatActivity {
         setContentView(R.layout.activity_personal_information);
     }
 
-    public void saveInformation(){
+    public void saveInformation(View view)
+    {
+        Intent switcher = new Intent(this,MainActivity.class);
+        startActivity(switcher);
 
     }
 
