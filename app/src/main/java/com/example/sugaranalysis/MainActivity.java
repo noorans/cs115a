@@ -76,7 +76,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-<<<<<<< HEAD
+    public void clickBMI(View v) {
+        Intent intent = new Intent(MainActivity.this, BMIActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+    }
+
     //calling EditModel
     private ArrayList<EditModel> populateList(){
 
@@ -90,13 +95,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return list;
-=======
-    // start new activity to view BMI acitvity
-    public void clickBMI(View v) {
-        Intent intent = new Intent(MainActivity.this, BMIActivity.class);
-        intent.setType("*/*");
-        startActivity(intent);
->>>>>>> 6dc78536325df8b30fa4da75fcd3eda4ba10ff89
+
     }
 
     // THE FOLLOWING OBSOLETE CODE FOR THE MENU INFLATOR
