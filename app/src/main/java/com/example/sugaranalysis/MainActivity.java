@@ -7,6 +7,7 @@ import android.os.Bundle;
 //import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import java.util.ArrayList;
@@ -15,27 +16,24 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ImageView progressButton, bmiButton, alertsButton, contactsButton, settingsButton;
-    ListView listView;
+    private Button sugarInputbtn;
+    private ListView sugarInputlv;
+    private CustomeAdapter customeAdapter;
+    public ArrayList<EditModel> editModelArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // ListView
-        listView = (ListView) findViewById(R.id.listview);
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Before Breakfast");
-        arrayList.add("After Breakfast");
-        arrayList.add("Before Lunch");
-        arrayList.add("After Lunch");
-        arrayList.add("Before Dinner");
-        arrayList.add("After Dinner");
-        arrayList.add("Before Bedtime Snack");
-        arrayList.add("Before Workout");
-        arrayList.add("After Workout");
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
-        listView.setAdapter(arrayAdapter);
+
+        sugarInputlv = (ListView) findViewById(R.id.listView);
+        sugarInputbtn = (Button) findViewById(R.id.sugarInputbtn);
+
+        editModelArrayList = populateList();
+        customeAdapter = new CustomeAdapter(this,editModelArrayList);
+        sugarInputlv.setAdapter(customeAdapter);
+
 
         // buttons/icons
         progressButton = (ImageView) findViewById(R.id.progressIcon);
@@ -49,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // start new activity to view blood sugar input
+        sugarInputbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,NextActivity.class);
                 startActivity(intent);
             }
         });
@@ -67,6 +74,28 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+    }
+
+    public void clickBMI(View v) {
+        Intent intent = new Intent(MainActivity.this, BMIActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+    }
+
+    //calling EditModel
+    private ArrayList<EditModel> populateList(){
+
+        ArrayList<EditModel> list = new ArrayList<>();
+
+        //giving inital values to EditModel
+        for(int i = 0; i < 8; i++){
+            EditModel editModel = new EditModel();
+            editModel.setEditTextValue(String.valueOf(i));
+            list.add(editModel);
+        }
+
+        return list;
+
     }
 
     // THE FOLLOWING OBSOLETE CODE FOR THE MENU INFLATOR
