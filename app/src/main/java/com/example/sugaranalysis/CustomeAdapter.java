@@ -58,8 +58,8 @@ public class CustomeAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.lv_item, null, true);
-            holder.textView = (TextView) convertView.findViewById(R.id.breakfast);
-            holder.editText = (EditText) convertView.findViewById(R.id.editid);
+            holder.textView = (TextView) convertView.findViewById(R.id.title);
+            holder.editText = (EditText) convertView.findViewById(R.id.editText);
 
             convertView.setTag(holder);
         }else {

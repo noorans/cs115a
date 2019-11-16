@@ -88,13 +88,13 @@ public class ProgressActivity extends AppCompatActivity {
         theData.clear();
         //int month = new Date().getMonth();
         //int day = new Date().getDate();
-        theData.add(new Data("Day 1", 5));
-        theData.add(new Data("Day 2", 10));
-        theData.add(new Data("Day 3", 20));
-        theData.add(new Data("Day 4", 15));
-        theData.add(new Data("Day 5", 30));
-        theData.add(new Data("Day 6", 10));
-        theData.add(new Data("Day 7", 50));
+        theData.add(new Data("Monday", 5));
+        theData.add(new Data("Tuesday", 10));
+        theData.add(new Data("Wednesday", 20));
+        theData.add(new Data("Thursday", 15));
+        theData.add(new Data("Friday", 30));
+        theData.add(new Data("Saturday", 10));
+        theData.add(new Data("Sunday", 50));
         // find way to reset after all days have been filled
         // average blood sugar is total amount of blood sugar in day/amount of tests that day
     }
