@@ -9,17 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.daasuu.cat.CountAnimationTextView;
-
-import java.text.DecimalFormat;
 
 public class BMIActivity extends AppCompatActivity {
     ImageView progressButton, bmiButton, alertsButton, contactsButton, settingsButton;
     EditText weight, height;
     TextView category;
     CountAnimationTextView result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +42,7 @@ public class BMIActivity extends AppCompatActivity {
             result.setText(restoredResult);
             category.setText(restoredCategory);
         }
+
         // start new activity to view settings activity
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +52,7 @@ public class BMIActivity extends AppCompatActivity {
             }
         });
     }
+
     public void calculateBMI(View view) {
         String heightStr = height.getText().toString();
         String weightStr = weight.getText().toString();
@@ -68,15 +67,12 @@ public class BMIActivity extends AppCompatActivity {
         if(bmi < 18.5) {
             bmiLabel = getString(R.string.underweight);
         }
-
         if(bmi >= 18.5 && bmi <= 24.9) {
             bmiLabel = getString(R.string.normal);
         }
-
         if(bmi >= 25 && bmi <= 29.9) {
             bmiLabel = getString(R.string.overweight);
         }
-
         if(bmi >= 30) {
             bmiLabel = getString(R.string.obesity);
         }

@@ -180,7 +180,7 @@
             android:id="@+id/circle"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:layout_marginLeft="114dp"
+            android:layout_marginLeft="116dp"
             android:layout_marginTop="15dp"
             android:src="@drawable/circle" />
 
@@ -209,8 +209,8 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:textColor="@color/colorBlue"
-        android:textStyle="bold" />
-
+        android:textStyle="bold"
+        android:textSize="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -258,11 +258,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="@color/colorBlue"
         android:onClick="calculateBMI"
         android:padding="20dp"
-
         android:text="@string/calculateBMI"
         android:textColor="@color/colorWhite" />
 

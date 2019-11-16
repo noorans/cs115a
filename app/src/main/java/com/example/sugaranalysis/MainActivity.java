@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ImageView progressButton, bmiButton, alertsButton, contactsButton, settingsButton;
+    int i;
     private Button sugarInputbtn;
     private ListView sugarInputlv;
     private CustomeAdapter customeAdapter;
@@ -87,15 +88,44 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<EditModel> list = new ArrayList<>();
 
-        //giving inital values to EditModel
-        for(int i = 0; i < 8; i++){
+        for(i = 0; i < 8; i++){
             EditModel editModel = new EditModel();
+            if(i == 0) {
+                // title at position 0
+                editModel.setTitle("Before Breakfast");
+            }
+            else if (i == 1) {
+                // title at position 1
+                editModel.setTitle("After Breakfast");
+            }
+            else if(i == 2) {
+                // title at position 2
+                editModel.setTitle("Before Lunch");
+            }
+            else if(i == 3) {
+                // title at position 3
+                editModel.setTitle("After Lunch");
+            }
+            else if (i == 4) {
+                // title at position 4
+                editModel.setTitle("Before Dinner");
+            }
+            else if(i == 5) {
+                // title at position 5
+                editModel.setTitle("After Dinner");
+            }
+            else if (i == 6) {
+                // title at position 6
+                editModel.setTitle("Before Workout");
+            }
+            else if(i == 7) {
+                // title at position 7
+                editModel.setTitle("After Workout");
+            }
             editModel.setEditTextValue(String.valueOf(i));
             list.add(editModel);
         }
-
         return list;
-
     }
 
     // THE FOLLOWING OBSOLETE CODE FOR THE MENU INFLATOR
