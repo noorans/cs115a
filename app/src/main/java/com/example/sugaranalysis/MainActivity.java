@@ -86,10 +86,34 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<EditModel> populateList(){
 
         ArrayList<EditModel> list = new ArrayList<>();
-
+        int i;
         //giving inital values to EditModel
-        for(int i = 0; i < 8; i++){
+        for(i = 0; i < 8; i++){
             EditModel editModel = new EditModel();
+            if(i == 0) {
+                editModel.setTitle("Before Breakfast");
+            }
+            else if (i == 1) {
+                editModel.setTitle("After Breakfast");
+            }
+            else if(i == 2) {
+                editModel.setTitle("Before Lunch");
+            }
+            else if(i == 3) {
+                editModel.setTitle("After Lunch");
+            }
+            else if (i == 4) {
+                editModel.setTitle("Before Dinner");
+            }
+            else if(i == 5) {
+                editModel.setTitle("After Dinner");
+            }
+            else if (i == 6) {
+                editModel.setTitle("Before Workout");
+            }
+            else if(i == 7) {
+                editModel.setTitle("After Workout");
+            }
             editModel.setEditTextValue(String.valueOf(i));
             list.add(editModel);
         }
