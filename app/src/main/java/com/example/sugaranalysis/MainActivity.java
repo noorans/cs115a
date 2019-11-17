@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView progressButton, bmiButton, alertsButton, contactsButton, settingsButton;
+    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+            settingsButton, logsButton, homeButton;
     int i;
-    private Button sugarInputbtn;
     private ListView sugarInputlv;
     private CustomeAdapter customeAdapter;
     public ArrayList<EditModel> editModelArrayList;
@@ -28,20 +28,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        sugarInputlv = (ListView) findViewById(R.id.listView);
-        sugarInputbtn = (Button) findViewById(R.id.sugarInputbtn);
-
+        sugarInputlv = findViewById(R.id.listView);
         editModelArrayList = populateList();
         customeAdapter = new CustomeAdapter(this,editModelArrayList);
         sugarInputlv.setAdapter(customeAdapter);
 
 
         // buttons/icons
-        progressButton = (ImageView) findViewById(R.id.progressIcon);
-        bmiButton = findViewById(R.id.bmiIcon);
-        alertsButton = findViewById(R.id.bellIcon);
-        contactsButton = findViewById(R.id.contactIcon);
-        settingsButton = findViewById(R.id.settingsIcon);
+        homeButton = findViewById(R.id.titleSugar);
+        progressButton = findViewById(R.id.progress);
+        bmiButton = findViewById(R.id.bmi);
+        alertsButton = findViewById(R.id.alerts);
+        contactsButton = findViewById(R.id.contacts);
+        settingsButton = findViewById(R.id.settings);
+        logsButton = findViewById(R.id.logs);
 
         // start new activity to view settings activity
         settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -53,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // start new activity to view blood sugar input
-        sugarInputbtn.setOnClickListener(new View.OnClickListener() {
+        logsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,NextActivity.class);
+                Intent intent = new Intent(MainActivity.this, NextActivity.class);
                 startActivity(intent);
             }
         });
@@ -89,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<EditModel> list = new ArrayList<>();
 
         for(i = 0; i < 8; i++){
+            // manually added space for allignment reasons
+            // trim when you input to sql database
             EditModel editModel = new EditModel();
             if(i == 0) {
                 // title at position 0
@@ -96,31 +98,31 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (i == 1) {
                 // title at position 1
-                editModel.setTitle("After Breakfast");
+                editModel.setTitle("After Breakfast   ");
             }
             else if(i == 2) {
                 // title at position 2
-                editModel.setTitle("Before Lunch");
+                editModel.setTitle("Before Lunch      ");
             }
             else if(i == 3) {
                 // title at position 3
-                editModel.setTitle("After Lunch");
+                editModel.setTitle("After Lunch         ");
             }
             else if (i == 4) {
                 // title at position 4
-                editModel.setTitle("Before Dinner");
+                editModel.setTitle("Before Dinner     ");
             }
             else if(i == 5) {
                 // title at position 5
-                editModel.setTitle("After Dinner");
+                editModel.setTitle("After Dinner        ");
             }
             else if (i == 6) {
                 // title at position 6
-                editModel.setTitle("Before Workout");
+                editModel.setTitle("Before Workout  ");
             }
             else if(i == 7) {
                 // title at position 7
-                editModel.setTitle("After Workout");
+                editModel.setTitle("After Workout     ");
             }
             editModel.setEditTextValue(String.valueOf(i));
             list.add(editModel);

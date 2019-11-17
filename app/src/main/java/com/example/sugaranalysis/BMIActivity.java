@@ -12,7 +12,8 @@ import android.widget.TextView;
 import com.daasuu.cat.CountAnimationTextView;
 
 public class BMIActivity extends AppCompatActivity {
-    ImageView progressButton, bmiButton, alertsButton, contactsButton, settingsButton;
+    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+            settingsButton, logsButton, homeButton;
     EditText weight, height;
     TextView category;
     CountAnimationTextView result;
@@ -28,11 +29,13 @@ public class BMIActivity extends AppCompatActivity {
         category = findViewById(R.id.category);
 
         // buttons/icons
-        progressButton = findViewById(R.id.progressIcon);
-        bmiButton = findViewById(R.id.bmiIcon);
-        alertsButton = findViewById(R.id.bellIcon);
-        contactsButton = findViewById(R.id.contactIcon);
-        settingsButton = findViewById(R.id.settingsIcon);
+        homeButton = findViewById(R.id.titleSugar);
+        logsButton = findViewById(R.id.logs);
+        progressButton = findViewById(R.id.progress);
+        bmiButton = findViewById(R.id.bmi);
+        alertsButton = findViewById(R.id.alerts);
+        contactsButton = findViewById(R.id.contacts);
+        settingsButton = findViewById(R.id.settings);
 
         SharedPreferences prefs = getSharedPreferences("bmiprefs", MODE_PRIVATE);
         String restoredResult = prefs.getString("result", null);
@@ -51,6 +54,16 @@ public class BMIActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // start new activity to view blood sugar input
+        logsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BMIActivity.this, NextActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void calculateBMI(View view) {
