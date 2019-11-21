@@ -66,8 +66,7 @@ public class LogDB extends SQLiteOpenHelper {
             db.insert(TABLE_NAME, null, cv);
         }
     }
-
-
+    
     //This method will be used when we want to query anything in our table
     public Cursor logQuery( String filter) {
         SQLiteDatabase db = getReadableDatabase();

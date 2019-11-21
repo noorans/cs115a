@@ -58,6 +58,7 @@ public class ProgressActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ProgressActivity.this, NextActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -116,6 +117,7 @@ public class ProgressActivity extends AppCompatActivity {
         Intent intent = new Intent(ProgressActivity.this, ProgressActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+        finish();
     }
 
     // start new activity to view main activity
@@ -123,6 +125,7 @@ public class ProgressActivity extends AppCompatActivity {
         Intent intent = new Intent(ProgressActivity.this, MainActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+        finish();
     }
 
     // start new activity to view BMI acitvity
@@ -130,6 +133,7 @@ public class ProgressActivity extends AppCompatActivity {
         Intent intent = new Intent(ProgressActivity.this, BMIActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+        finish();
     }
 
 }

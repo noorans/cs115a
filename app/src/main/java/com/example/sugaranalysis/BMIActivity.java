@@ -105,6 +105,7 @@ public class BMIActivity extends AppCompatActivity {
         Intent intent = new Intent(BMIActivity.this, ProgressActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+        finish();
     }
 
     // start new activity to view main activity
@@ -112,6 +113,7 @@ public class BMIActivity extends AppCompatActivity {
         Intent intent = new Intent(BMIActivity.this, MainActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+        finish();
     }
 
     // start new activity to view BMI acitvity
@@ -119,5 +121,6 @@ public class BMIActivity extends AppCompatActivity {
         Intent intent = new Intent(BMIActivity.this, BMIActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+        finish();
     }
 }

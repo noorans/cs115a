@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, ProgressActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+
     }
 
     // start new activity to view main activity
@@ -73,12 +74,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+
     }
 
     public void clickBMI(View v) {
         Intent intent = new Intent(MainActivity.this, BMIActivity.class);
         intent.setType("*/*");
         startActivity(intent);
+
     }
 
     //calling EditModel
