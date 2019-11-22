@@ -61,6 +61,7 @@ public class BMIActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BMIActivity.this, NextActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
