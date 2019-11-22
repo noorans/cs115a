@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView sugarInputlv;
     private CustomeAdapter customeAdapter;
     public ArrayList<EditModel> editModelArrayList;
+    public static LogDB log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

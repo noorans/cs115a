@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static com.example.sugaranalysis.SettingsFragment.PREFERENCE_HEIGHT;
+import static com.example.sugaranalysis.SettingsFragment.PREFERENCE_WEIGHT;
+
 public class CustomeAdapter extends BaseAdapter {
 
     private Context context;
@@ -84,7 +87,21 @@ public class CustomeAdapter extends BaseAdapter {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                String bmi;
+                String moment;
+                String date;
+                String time;
+                String height;
+                String weight;
 
+                bmi = editModelArrayList.get(position).getEditTextValue();
+                moment = editModelArrayList.get(position).getTitle();
+                date = "11/21/2019";
+                time = "6:00pm";
+                height = PREFERENCE_HEIGHT;
+                weight = PREFERENCE_WEIGHT;
+
+                MainActivity.log.addEntry(bmi,moment,date,time,height,weight);
             }
         });
 
