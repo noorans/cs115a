@@ -87,7 +87,7 @@ public class LogDB extends SQLiteOpenHelper {
         Cursor cursor = db.query(
                 TABLE_NAME,
                 projection,
-                "AVG_BMI" + " LIKE ?",
+                "DATE" + " LIKE ?",
                 new String[]{"%" + filter + "%"},
                 null, null, "AVG_BMI", null);
         return cursor;
