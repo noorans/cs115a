@@ -3,7 +3,7 @@ package com.example.sugaranalysis.Objects;
 public class LogObject {
 
     //private String itemNDB;
-    private String logAvg_bmi;
+    private String logAvg_bs;
     private String logMoment;
     private String logDate;
     private String logTime;
@@ -12,7 +12,7 @@ public class LogObject {
 
     //Constructor
     public LogObject() {
-        logAvg_bmi = "";
+        logAvg_bs = "";
         logMoment = "";
         logDate = "";
         logTime = "";
@@ -21,8 +21,8 @@ public class LogObject {
 
     }
 
-    public LogObject(String logAvg_bmi, String logMoment, String logDate, String logTime, String logHeight, String logWeight) {
-        this.logAvg_bmi = logAvg_bmi;
+    public LogObject(String logAvg_bs, String logMoment, String logDate, String logTime, String logHeight, String logWeight) {
+        this.logAvg_bs = logAvg_bs;
         this.logMoment = logMoment;
         this.logDate = logDate;
         this.logTime = logTime;
@@ -30,9 +30,9 @@ public class LogObject {
         this.logWeight = logWeight;
     }
 
-    public String getLogAvg_bmi() { return logAvg_bmi; }
+    public String getLogAvg_bs() { return logAvg_bs; }
 
-    public void setLogAvg_bmi(String logAvg_bmi) { this.logAvg_bmi = logAvg_bmi; }
+    public void setLogAvg_bs(String logAvg_bs) { this.logAvg_bs = logAvg_bs; }
 
     public String getLogMoment() {
         return logMoment;

@@ -10,4 +10,9 @@
 .DS_Store
 /build
 /captures
+<<<<<<< HEAD
 .externalNativeBuild
+.cxx
+=======
+.externalNativeBuild
+>>>>>>> 6328df72f4f04627e5fdb03d164655da4f345672
