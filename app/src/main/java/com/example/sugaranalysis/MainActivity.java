@@ -65,17 +65,17 @@ public class MainActivity extends AppCompatActivity {
         final TextView beforeWorkout = findViewById(R.id.beforeWorkout);
         final TextView afterWorkout = findViewById(R.id.afterWorkout);
 
-        // EditTexts for BMI
-        EditText beforeBreakfastBMI = findViewById(R.id.bbBMI);
-        EditText afterBreakfastBMI = findViewById(R.id.abBMI);
-        EditText beforeLunchBMI = findViewById(R.id.blBMI);
-        EditText afterLunchBMI = findViewById(R.id.alBMI);
-        EditText beforeDinnerBMI = findViewById(R.id.bdBMI);
-        EditText afterDinnerBMI = findViewById(R.id.adBMI);
-        EditText beforeWorkoutBMI = findViewById(R.id.bwBMI);
-        EditText afterWorkoutBMI = findViewById(R.id.awBMI);
+        // EditTexts for BS
+        EditText beforeBreakfastBS = findViewById(R.id.bbBS);
+        EditText afterBreakfastBS = findViewById(R.id.abBS);
+        EditText beforeLunchBS = findViewById(R.id.blBS);
+        EditText afterLunchBS = findViewById(R.id.alBS);
+        EditText beforeDinnerBS = findViewById(R.id.bdBS);
+        EditText afterDinnerBS = findViewById(R.id.adBS);
+        EditText beforeWorkoutBS = findViewById(R.id.bwBS);
+        EditText afterWorkoutBS = findViewById(R.id.awBS);
 
-        // Buttons for BMI
+        // Buttons for BS
         Button beforeBreakfastButton = findViewById(R.id.bbButton);
         Button afterBreakfastButton = findViewById(R.id.abButton);
         Button beforeLunchButton = findViewById(R.id.blButton);
@@ -114,80 +114,80 @@ public class MainActivity extends AppCompatActivity {
         beforeBreakfastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.bbBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.bbBS);
+                String bs = bstext.getText().toString();
                 String moment = beforeBreakfast.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
         afterBreakfastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.abBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.abBS);
+                String bs = bstext.getText().toString();
                 String moment = afterBreakfast.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
         beforeLunchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.blBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.blBS);
+                String bs = bstext.getText().toString();
                 String moment = beforeLunch.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
         afterLunchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.alBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.alBS);
+                String bs = bstext.getText().toString();
                 String moment = afterLunch.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
         beforeDinnerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.bdBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.bdBS);
+                String bs = bstext.getText().toString();
                 String moment = beforeDinner.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
         afterDinnerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.adBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.adBS);
+                String bs = bstext.getText().toString();
                 String moment = afterDinner.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
         beforeWorkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.bwBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.bwBS);
+                String bs = bstext.getText().toString();
                 String moment = beforeWorkout.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
         afterWorkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView bmitext = findViewById(R.id.awBMI);
-                String bmi = bmitext.getText().toString();
+                TextView bstext = findViewById(R.id.awBS);
+                String bs = bstext.getText().toString();
                 String moment = afterWorkout.getText().toString();
-                addToDataBase(bmi, moment);
+                addToDataBase(bs, moment);
             }
         });
 
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
         return list;
     }*/
 
-    public void addToDataBase(String bmi, String moment){
+    public void addToDataBase(String bs, String moment){
 
         SharedPreferences myPreferences = getSharedPreferences("com.example.sugaranalysis_preferences", 0);
         String date;
@@ -269,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
         date = "11/21/2019";
         time = "6:00pm";
 
-        log.addEntry(bmi,moment,date,time,height,weight);
+        log.addEntry(bs,moment,date,time,height,weight);
     }
 
 }

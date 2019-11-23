@@ -190,12 +190,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/bbBMI"
+            android:id="@+id/bbBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="1dp"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/bbButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,14 +209,14 @@
             android:textSize="21sp"
             app:layout_constraintEnd_toStartOf="@+id/abButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bbBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/bbBS" />
 
         <EditText
-            android:id="@+id/abBMI"
+            android:id="@+id/abBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/abButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -230,14 +230,14 @@
             android:textSize="21sp"
             app:layout_constraintEnd_toStartOf="@+id/blButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/abBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/abBS" />
 
         <EditText
-            android:id="@+id/blBMI"
+            android:id="@+id/blBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/blButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -251,14 +251,14 @@
             android:textSize="21sp"
             app:layout_constraintEnd_toStartOf="@+id/blButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/blBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/blBS" />
 
         <EditText
-            android:id="@+id/alBMI"
+            android:id="@+id/alBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/alButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -272,14 +272,14 @@
             android:textSize="21sp"
             app:layout_constraintEnd_toStartOf="@+id/alButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/alBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/alBS" />
 
         <EditText
-            android:id="@+id/bdBMI"
+            android:id="@+id/bdBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/bdButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -293,14 +293,14 @@
             android:textSize="21sp"
             app:layout_constraintEnd_toStartOf="@+id/adButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bdBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/bdBS" />
 
         <EditText
-            android:id="@+id/adBMI"
+            android:id="@+id/adBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/adButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -314,14 +314,14 @@
             android:textSize="21sp"
             app:layout_constraintEnd_toStartOf="@+id/bwButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/adBS" />
 
         <EditText
-            android:id="@+id/bwBMI"
+            android:id="@+id/bwBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/bwButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -335,15 +335,15 @@
             android:textSize="21sp"
             app:layout_constraintEnd_toStartOf="@+id/awButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bwBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/bwBS" />
 
         <EditText
-            android:id="@+id/awBMI"
+            android:id="@+id/awBS"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
             android:ems="10"
-            android:hint="BMI here"
+            android:hint="BS here"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/awButton"
@@ -393,7 +393,7 @@
             android:text="Submit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/beforeDinner"
-            app:layout_constraintTop_toBottomOf="@+id/alBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/alBS" />
 
         <Button
             android:id="@+id/adButton"
@@ -402,7 +402,7 @@
             android:text="Submit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/afterDinner"
-            app:layout_constraintTop_toBottomOf="@+id/bdBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/bdBS" />
 
         <Button
             android:id="@+id/bwButton"
@@ -411,7 +411,7 @@
             android:text="Submit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/beforeWorkout"
-            app:layout_constraintTop_toBottomOf="@+id/adBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/adBS" />
 
         <Button
             android:id="@+id/awButton"
@@ -422,7 +422,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/afterWorkout"
-            app:layout_constraintTop_toBottomOf="@+id/bwBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/bwBS" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

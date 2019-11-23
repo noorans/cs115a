@@ -17,7 +17,7 @@ import java.util.List;
 class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyViewHolder> {
     public List<LogObject> logObject;
     class MyViewHolder extends  RecyclerView.ViewHolder{
-        public TextView date, moment, time, bmi, height, weight, nameText, itemDescription;
+        public TextView date, moment, time, bs, height, weight, nameText, itemDescription;
         public Button button;
         public MyViewHolder(View v)
         {

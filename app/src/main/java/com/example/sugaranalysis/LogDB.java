@@ -18,8 +18,8 @@ public class LogDB extends SQLiteOpenHelper {
     Context ctx;
     SQLiteDatabase db;
     //private static String DB_PATH = "/data/data/com.example.surgaranalysis/databases/";
-    static String DB_NAME = "AVG_BMI_DB";
-    static String TABLE_NAME = "AVG_BMI_TABLE";
+    static String DB_NAME = "AVG_BS_DB";
+    static String TABLE_NAME = "AVG_BS_TABLE";
     static int VERSION = 1;
 
     static int FETCH_LIMIT = 876;
@@ -37,7 +37,7 @@ public class LogDB extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         // CREATE TABLE  TABLE_NAME (_id INTEGER PRIMARY KEY, NDB STRING, NAME STRING, MEASURE STRING, UNIT STRING, VALUE STRING);
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY, AVG_BMI STRING, MOMENT STRING, DATE STRING, TIME STRING, HEIGHT STRING, WEIGHT STRING);");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY, AVG_BS STRING, MOMENT STRING, DATE STRING, TIME STRING, HEIGHT STRING, WEIGHT STRING);");
 
     }
     public int count() {
@@ -56,12 +56,12 @@ public class LogDB extends SQLiteOpenHelper {
         }
     }
 
-    public void addEntry(String avg_bmi, String moment, String date, String time, String height, String weight) throws SQLiteException {
+    public void addEntry(String avg_bs, String moment, String date, String time, String height, String weight) throws SQLiteException {
         db = getWritableDatabase();
         long count = count();
         if (count < FETCH_LIMIT) {
             ContentValues cv = new ContentValues();
-            cv.put("AVG_BMI", avg_bmi);
+            cv.put("AVG_BS", avg_bs);
             cv.put("MOMENT", moment);
             cv.put("DATE", date);
             cv.put("TIME" , time);
@@ -81,7 +81,7 @@ public class LogDB extends SQLiteOpenHelper {
 // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
-                "AVG_BMI"
+                "AVG_BS"
         };
 
         Cursor cursor = db.query(
@@ -89,7 +89,7 @@ public class LogDB extends SQLiteOpenHelper {
                 projection,
                 "DATE" + " LIKE ?",
                 new String[]{"%" + filter + "%"},
-                null, null, "AVG_BMI", null);
+                null, null, "AVG_BS", null);
         return cursor;
     }
 
@@ -101,7 +101,7 @@ public class LogDB extends SQLiteOpenHelper {
         if(cursor != null & cursor.getCount() > 0) {
             cursor.moveToFirst();
             int index;
-            String avg_bmi;
+            String avg_bs;
             String moment;
             String date;
             String time;
@@ -109,8 +109,8 @@ public class LogDB extends SQLiteOpenHelper {
             String weight;
 
             do{
-                index = cursor.getColumnIndex("AVG_BMI");
-                avg_bmi = cursor.getString(index);
+                index = cursor.getColumnIndex("AVG_BS");
+                avg_bs = cursor.getString(index);
                 index = cursor.getColumnIndex("MOMENT");
                 moment = cursor.getString(index);
                 index = cursor.getColumnIndex("DATE");
@@ -121,7 +121,7 @@ public class LogDB extends SQLiteOpenHelper {
                 height = cursor.getString(index);
                 index = cursor.getColumnIndex("WEIGHT");
                 weight = cursor.getString(index);
-                LogObject fi = new LogObject(avg_bmi, moment, date, time, height, weight);
+                LogObject fi = new LogObject(avg_bs, moment, date, time, height, weight);
                 LogObject.add(fi);
             }while (cursor.moveToNext());
             cursor.close();
