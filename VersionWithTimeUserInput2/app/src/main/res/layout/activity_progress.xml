@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/toplabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/bluerectangle" />
+
+        <TextView
+            android:id="@+id/sugarAnalysisTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sugar_analysis"
+            android:onClick="clickHome"
+            android:contextClickable="true"
+            android:layout_alignLeft="@id/toplabel"
+            android:layout_alignTop="@id/toplabel"
+            android:layout_alignRight="@id/toplabel"
+            android:layout_alignBottom="@id/toplabel"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="25dp"
+            android:textSize="25dp"/>
+
+        <ImageView
+            android:id="@+id/whiteLineTopLabel"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_alignLeft="@id/toplabel"
+            android:layout_alignTop="@id/toplabel"
+            android:layout_alignRight="@id/toplabel"
+            android:layout_alignBottom="@id/toplabel"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/whiteline1" />
+
+        <ImageView
+            android:id="@+id/settingsIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/toplabel"
+            android:layout_alignRight="@id/toplabel"
+            android:layout_alignBottom="@id/toplabel"
+            android:layout_marginRight="7dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/settings" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/toplabel2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-30dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/bluerectangle" />
+
+        <ImageView
+            android:id="@+id/progressIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginRight="290dp"
+            android:layout_marginTop="1.5dp"
+            android:onClick="clickProgress"
+            android:contextClickable="true"
+            android:src="@drawable/progreschart1" />
+
+        <TextView
+            android:id="@+id/progressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="28dp"
+            android:onClick="clickProgress"
+            android:contextClickable="true"
+            android:text="@string/progress_label"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/bmiIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginTop="-1dp"
+            android:layout_marginRight="102dp"
+            android:onClick="clickBMI"
+            android:src="@drawable/bmiicon1" />
+
+        <TextView
+            android:id="@+id/bmiLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginLeft="141dp"
+            android:layout_marginTop="27.8dp"
+            android:text="@string/bmi_label"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/bellIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="-1.4dp"
+            android:src="@drawable/bellicon1" />
+
+        <TextView
+            android:id="@+id/bellLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="27.8dp"
+            android:text="@string/bell_label"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/contactIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="-1dp"
+            android:src="@drawable/usericon1" />
+
+        <TextView
+            android:id="@+id/contactLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/toplabel2"
+            android:layout_alignRight="@id/toplabel2"
+            android:layout_marginLeft="310dp"
+            android:layout_marginTop="27.8dp"
+            android:text="@string/contact_label"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/weeklyProgressLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="WEEKLY PROGRESS"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginBottom="30dp"
+        android:id= "@+id/barchart"/>
+</LinearLayout>
