@@ -12,6 +12,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,6 +30,8 @@ public class ProgressActivity extends AppCompatActivity {
     ArrayList<String> labelsNames;
 
     ArrayList<Data> theData = new ArrayList<>();
+
+    int blue1, blue2, blue3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +70,7 @@ public class ProgressActivity extends AppCompatActivity {
         barChart = findViewById(R.id.barchart);
         barEntry = new ArrayList<>();
         labelsNames = new ArrayList<>();
+
         fillAverageBloodSugar();
         for(int i = 0; i < theData.size(); i ++) {
             String month = theData.get(i).getDays();
@@ -74,8 +78,14 @@ public class ProgressActivity extends AppCompatActivity {
             barEntry.add(new BarEntry(i, sales));
             labelsNames.add(month);
         }
+
+        blue1 = Color.rgb(21,104,184);
+        blue2 = Color.rgb(27, 129, 225);
+        blue3= Color.rgb(117, 181, 240);
+
         BarDataSet barDataSet = new BarDataSet(barEntry, "Weekly Progress");
-        barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+        barDataSet.setColors(new int []
+                {blue1, blue2, blue3, blue1, blue2, blue3, blue1});
         Description description = new Description();
         description.setText(" ");
         barChart.setDescription(description);
@@ -96,18 +106,25 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
+
     // barchart stuff
     private void fillAverageBloodSugar() {
         theData.clear();
         //int month = new Date().getMonth();
         //int day = new Date().getDate();
-        theData.add(new Data("Monday", 5));
-        theData.add(new Data("Tuesday", 10));
-        theData.add(new Data("Wednesday", 20));
-        theData.add(new Data("Thursday", 15));
-        theData.add(new Data("Friday", 30));
-        theData.add(new Data("Saturday", 10));
-        theData.add(new Data("Sunday", 50));
+
+        //for(int i = 0; i < levels.size(); i++) {
+        // if (sql.database.day MONDAY == my barchart MONDAY) {
+        // sum of blood sugar/ number of non empty inputs
+        // add to chart monday
+
+        theData.add(new Data("MON", 5));
+        theData.add(new Data("TUES", 10));
+        theData.add(new Data("WED", 20));
+        theData.add(new Data("THURS", 15));
+        theData.add(new Data("FRI", 30));
+        theData.add(new Data("SAT", 10));
+        theData.add(new Data("SUN", 50));
         // find way to reset after all days have been filled
         // average blood sugar is total amount of blood sugar in day/amount of tests that day
     }

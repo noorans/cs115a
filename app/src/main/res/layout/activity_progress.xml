@@ -14,11 +14,9 @@
         android:layout_width="441dp"
         android:layout_height="94dp"
         android:src="@drawable/top"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/titleSugar"
@@ -139,25 +137,14 @@
         app:layout_constraintTop_toTopOf="@+id/bottom_bar"
         app:layout_constraintVertical_bias="0.525" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:divider="@null"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toplabel"
-        app:layout_constraintVertical_bias="0.087" />
 
     <TextView
         android:id="@+id/weeklyProgressLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="WEEKLY PROGRESS"
-        android:textSize="25dp"
+        android:text="MY WEEKLY PROGRESS"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/barchart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -167,12 +154,14 @@
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barchart"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="420dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView"
         app:layout_constraintVertical_bias="0.292" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
