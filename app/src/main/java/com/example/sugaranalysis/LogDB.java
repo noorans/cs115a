@@ -2,6 +2,7 @@ package com.example.sugaranalysis;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.pm.FeatureGroupInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -17,10 +18,11 @@ public class LogDB extends SQLiteOpenHelper {
     Context ctx;
     SQLiteDatabase db;
     //private static String DB_PATH = "/data/data/com.example.surgaranalysis/databases/";
-    static String DB_NAME = "AVG_BMI_DB";
-    static String TABLE_NAME = "AVG_BMI_TABLE";
+    static String DB_NAME = "AVG_BS_DB";
+    static String TABLE_NAME = "AVG_BS_TABLE";
     static int VERSION = 1;
-    //APICalls please = new APICalls();
+
+    static int FETCH_LIMIT = 876;
 
 
 
@@ -35,7 +37,7 @@ public class LogDB extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         // CREATE TABLE  TABLE_NAME (_id INTEGER PRIMARY KEY, NDB STRING, NAME STRING, MEASURE STRING, UNIT STRING, VALUE STRING);
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY, AVG_BMI STRING, TIME STRING, HEIGHT STRING, WEIGHT STRING);");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY, AVG_BS STRING, MOMENT STRING, DATE STRING, TIME STRING, HEIGHT STRING, WEIGHT STRING);");
 
     }
     public int count() {
@@ -54,12 +56,14 @@ public class LogDB extends SQLiteOpenHelper {
         }
     }
 
-    public void addEntry(String avg_bmi, String time, String height, String weight) throws SQLiteException {
+    public void addEntry(String avg_bs, String moment, String date, String time, String height, String weight) throws SQLiteException {
         db = getWritableDatabase();
         long count = count();
-        if (count < 876) {
+        if (count < FETCH_LIMIT) {
             ContentValues cv = new ContentValues();
-            cv.put("AVG_BMI", avg_bmi);
+            cv.put("AVG_BS", avg_bs);
+            cv.put("MOMENT", moment);
+            cv.put("DATE", date);
             cv.put("TIME" , time);
             cv.put("HEIGHT", height);
             cv.put("WEIGHT", weight);
@@ -76,47 +80,53 @@ public class LogDB extends SQLiteOpenHelper {
 // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
-                "AVG_BMI"
+                "AVG_BS"
         };
 
         Cursor cursor = db.query(
                 TABLE_NAME,
                 projection,
-                "AVG_BMI" + " LIKE ?",
+                "DATE" + " LIKE ?",
                 new String[]{"%" + filter + "%"},
-                null, null, "AVG_BMI", null);
+                null, null, "AVG_BS", null);
         return cursor;
     }
 
     //NOT FINALIZED
     //This method will be used to get all log objects from the table to display them
-    public List<LogObject> fillList(List<LogObject> foodItems, String filter) {
+    public List<LogObject> fillList(List<LogObject> LogObject, String filter) {
         Cursor cursor = logQuery(filter);
 
         if(cursor != null & cursor.getCount() > 0) {
             cursor.moveToFirst();
             int index;
-            String avg_bmi;
+            String avg_bs;
+            String moment;
+            String date;
             String time;
             String height;
             String weight;
 
             do{
-                index = cursor.getColumnIndex("AVG_BMI");
-                avg_bmi = cursor.getString(index);
+                index = cursor.getColumnIndex("AVG_BS");
+                avg_bs = cursor.getString(index);
+                index = cursor.getColumnIndex("MOMENT");
+                moment = cursor.getString(index);
+                index = cursor.getColumnIndex("DATE");
+                date = cursor.getString(index);
                 index = cursor.getColumnIndex("TIME");
                 time = cursor.getString(index);
                 index = cursor.getColumnIndex("HEIGHT");
                 height = cursor.getString(index);
                 index = cursor.getColumnIndex("WEIGHT");
                 weight = cursor.getString(index);
-                LogObject fi = new LogObject(avg_bmi, time, height, weight);
-                foodItems.add(fi);
+                LogObject fi = new LogObject(avg_bs, moment, date, time, height, weight);
+                LogObject.add(fi);
             }while (cursor.moveToNext());
             cursor.close();
         }
 
-        return foodItems;
+        return LogObject;
     }
 
 }
