@@ -24,7 +24,7 @@ public class LogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dropdown);
         logObjects = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById((R.id.rvContacts));
+        recyclerView = findViewById((R.id.rvContacts));
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         LogAdapter logAdapter = new LogAdapter(logObjects);

@@ -93,14 +93,45 @@ public class LogDB extends SQLiteOpenHelper {
                 projection,
                 "DATE" + " LIKE ?",
                 new String[]{"%" + filter + "%"},
-                null, null, "AVG_BS", null);
+                null, null, "_id" + "DESC", null);
         return cursor;
     }
 
-    //NOT FINALIZED
+    // This method will be used when we want to query anything in our table
+    public Cursor logGet( String filter) {
+        SQLiteDatabase db = getReadableDatabase();
+
+
+// Define a projection that specifies which columns from the database
+// you will actually use after this query.
+        String[] projection = {
+                BaseColumns._ID,
+                "AVG_BS",
+                "MOMENT",
+                "DATE",
+                "TIME",
+                "HEIGHT",
+                "WEIGHT"
+        };
+
+        Cursor cursor = db.query(
+                TABLE_NAME,
+                projection,
+                "DATE" + " LIKE ?",
+                new String[]{"%" + filter + "%"},
+                null, null, "_ID", null);
+        return cursor;
+    }
+
     //This method will be used to get all log objects from the table to display them
     public List<LogObject> fillList(List<LogObject> LogObject, String filter) {
-        Cursor cursor = logQuery(filter);
+        Cursor cursor;
+        if(filter == ""){
+            cursor = logGet(filter);
+        }
+        else {
+            cursor = logQuery(filter);
+        }
 
         if(cursor != null & cursor.getCount() > 0) {
             cursor.moveToFirst();
