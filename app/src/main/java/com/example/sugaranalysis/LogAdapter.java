@@ -17,14 +17,17 @@ import java.util.List;
 class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyViewHolder> {
     public List<LogObject> logObject;
     class MyViewHolder extends  RecyclerView.ViewHolder{
-        public TextView date, moment, time, bs, height, weight, nameText, itemDescription;
-        public Button button;
+        public TextView date, moment, time, bloodsugar, height, weight;
+
         public MyViewHolder(View v)
         {
             super(v);
-            nameText = itemView.findViewById(R.id.textFoodTItle);
-            itemDescription = itemView.findViewById(R.id.textFoodDesc);
-            button = itemView.findViewById(R.id.ServingButton);
+            date = itemView.findViewById(R.id.date);
+            time = itemView.findViewById(R.id.time);
+            moment = itemView.findViewById(R.id.moment);
+            bloodsugar = itemView.findViewById(R.id.bloodsugar);
+            height = itemView.findViewById(R.id.height);
+            weight = itemView.findViewById(R.id.weight);
         }
     }
     private Context context;
@@ -41,7 +44,12 @@ class LogAdapter extends RecyclerView.Adapter<LogAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
+        holder.date.setText(logObject.get(position).getLogDate());
+        holder.time.setText(logObject.get(position).getLogTime());
+        holder.moment.setText(logObject.get(position).getLogMoment());
+        holder.bloodsugar.setText(logObject.get(position).getLogAvg_bs());
+        holder.height.setText(logObject.get(position).getLogHeight());
+        holder.weight.setText(logObject.get(position).getLogWeight());
     }
 
     @Override
