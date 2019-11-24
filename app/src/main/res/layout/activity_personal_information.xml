@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="312dp"
-        android:layout_height="270dp"
+        android:layout_width="303dp"
+        android:layout_height="269dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/PI_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.604"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <ImageView
         android:id="@+id/sugar_title"
@@ -33,92 +33,112 @@
         app:layout_constraintTop_toTopOf="@+id/logo"
         app:layout_constraintVertical_bias="0.041" />
 
-    <EditText
-
-        android:id="@+id/PI_name"
+    <TextView
+        android:id="@+id/caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="136dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="10dp"
+        android:text="Please enter your information below"
+        android:textColor="#7199C4"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/PI_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sugar_title"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <EditText
+        android:id="@+id/PI_name"
+        android:layout_width="295dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="328dp"
+        android:layout_marginEnd="136dp"
+        android:background="@drawable/boxes"
+        android:ems="10"
+        android:gravity="center"
+        android:textColor="@color/colorDarkBlue"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/PI_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147"
         tools:text="Name" />
+
 
     <EditText
         android:id="@+id/PI_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="295dp"
+        android:layout_height="54dp"
         android:layout_marginStart="62dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="232dp"
         android:layout_marginEnd="136dp"
-        android:layout_marginRight="136dp"
+        android:background="@drawable/boxes"
         android:ems="10"
+        android:textColor="@color/colorDarkBlue"
+        android:gravity="center"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/PI_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PI_name"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="Age" />
 
     <EditText
         android:id="@+id/PI_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginRight="136dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="295dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="428dp"
+        android:background="@drawable/boxes"
         android:ems="10"
+        android:gravity="center"
+        android:textColor="@color/colorDarkBlue"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/PI_weight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PI_age"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063"
         tools:text="Height" />
 
     <EditText
         android:id="@+id/PI_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="295dp"
+        android:layout_height="54dp"
         android:layout_marginStart="62dp"
-        android:layout_marginLeft="62dp"
         android:layout_marginEnd="136dp"
-        android:layout_marginRight="136dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="224dp"
+        android:background="@drawable/boxes"
         android:ems="10"
+        android:gravity="center"
+        android:textColor="@color/colorDarkBlue"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986"
         tools:text="Weight" />
 
-
-
-
-    <Button
+    <ImageButton
         android:id="@+id/PI_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="139dp"
+        android:layout_height="58dp"
         android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
         android:layout_marginEnd="163dp"
-        android:layout_marginRight="163dp"
-        android:layout_marginBottom="100dp"
-        android:text="SAVE"
+        android:background="@drawable/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PI_weight"
+        app:layout_constraintVertical_bias="0.803" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

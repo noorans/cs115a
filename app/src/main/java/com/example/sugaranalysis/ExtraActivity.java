@@ -1,33 +1,21 @@
 package com.example.sugaranalysis;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+public class ExtraActivity extends AppCompatActivity {
 
-import com.example.sugaranalysis.Objects.LogObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.example.sugaranalysis.MainActivity.log;
-
-public class LogActivity extends AppCompatActivity {
     ImageView progressButton, bmiButton, alertsButton, contactsButton,
             settingsButton, logsButton, homeButton;
 
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private List<LogObject> logObjects;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dropdown);
+        setContentView(R.layout.activity_extra);
 
         // buttons/icons
         homeButton = findViewById(R.id.titleSugar);
@@ -38,17 +26,10 @@ public class LogActivity extends AppCompatActivity {
         settingsButton = findViewById(R.id.settings);
         logsButton = findViewById(R.id.logs);
 
-        logObjects = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById((R.id.rvContacts));
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        LogAdapter logAdapter = new LogAdapter(logObjects);
-        recyclerView.setAdapter(logAdapter);
-
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LogActivity.this, SettingsActivity.class);
+                Intent intent = new Intent(ExtraActivity.this, SettingsActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +38,7 @@ public class LogActivity extends AppCompatActivity {
         logsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LogActivity.this, LogActivity.class);
+                Intent intent = new Intent(ExtraActivity.this, LogActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -66,7 +47,7 @@ public class LogActivity extends AppCompatActivity {
 
     // start new activity to view progress activity
     public void clickProgress(View v) {
-        Intent intent = new Intent(LogActivity.this, ProgressActivity.class);
+        Intent intent = new Intent(ExtraActivity.this, ProgressActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();
@@ -75,7 +56,7 @@ public class LogActivity extends AppCompatActivity {
 
     // start new activity to view main activity
     public void clickHome(View v) {
-        Intent intent = new Intent(LogActivity.this, MainActivity.class);
+        Intent intent = new Intent(ExtraActivity.this, MainActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();
@@ -83,7 +64,7 @@ public class LogActivity extends AppCompatActivity {
     }
 
     public void clickBMI(View v) {
-        Intent intent = new Intent(LogActivity.this, BMIActivity.class);
+        Intent intent = new Intent(ExtraActivity.this, BMIActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();
@@ -91,7 +72,7 @@ public class LogActivity extends AppCompatActivity {
     }
 
     public void clickAlerts(View v) {
-        Intent intent = new Intent(LogActivity.this, AlertsActivity.class);
+        Intent intent = new Intent(ExtraActivity.this, AlertsActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();

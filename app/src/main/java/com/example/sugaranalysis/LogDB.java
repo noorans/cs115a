@@ -76,8 +76,8 @@ public class LogDB extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
 
-// Define a projection that specifies which columns from the database
-// you will actually use after this query.
+    // Define a projection that specifies which columns from the database
+    // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
                 "AVG_BS",
@@ -101,7 +101,6 @@ public class LogDB extends SQLiteOpenHelper {
     //This method will be used to get all log objects from the table to display them
     public List<LogObject> fillList(List<LogObject> LogObject, String filter) {
         Cursor cursor = logQuery(filter);
-
         if(cursor != null & cursor.getCount() > 0) {
             cursor.moveToFirst();
             int index;
