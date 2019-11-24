@@ -1,6 +1,8 @@
 package com.example.sugaranalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sugaranalysis.Objects.LogObject;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
@@ -16,6 +18,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import static com.example.sugaranalysis.MainActivity.log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,10 +29,12 @@ public class ProgressActivity extends AppCompatActivity {
     ImageView progressButton, bmiButton, alertsButton, contactsButton,
             settingsButton, logsButton, homeButton;
     BarChart barChart;
-    ArrayList<BarEntry> barEntry;
     ArrayList<String> labelsNames;
-
+    ArrayList<BarEntry> barEntry;
     ArrayList<Data> theData = new ArrayList<>();
+
+
+    ArrayList<LogObject> theAvg = new ArrayList<>();
 
     int blue1, blue2, blue3;
     @Override
@@ -38,6 +43,7 @@ public class ProgressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_progress);
 
         // buttons
+
         homeButton = findViewById(R.id.titleSugar);
         logsButton = findViewById(R.id.logs);
         progressButton =  findViewById(R.id.progress);
@@ -72,10 +78,12 @@ public class ProgressActivity extends AppCompatActivity {
         labelsNames = new ArrayList<>();
 
         fillAverageBloodSugar();
+
+        // barchart arraylist takes in a label and value
         for(int i = 0; i < theData.size(); i ++) {
             String month = theData.get(i).getDays();
-            int sales = theData.get(i).getLevels();
-            barEntry.add(new BarEntry(i, sales));
+            int levels = theData.get(i).getLevels();
+            barEntry.add(new BarEntry(i, levels));
             labelsNames.add(month);
         }
 
@@ -106,10 +114,23 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
-
     // barchart stuff
     private void fillAverageBloodSugar() {
-        theData.clear();
+        int sum = 0;
+        //theData.clear();
+        //if date == current date
+        // fill list with values
+        // calculate average
+        // add the bar chart with  corresponding label of date
+        // cannot due currentdate+ 1
+        log.fillList(theAvg, "11/21/2019");
+        for(int i = 0; i < theAvg.size(); i ++) {
+            sum = Integer.valueOf(theAvg.get(i).getLogAvg_bs());
+        }
+        int avg_of_day = sum/theAvg.size();
+        theData.add(new Data("11/21/19", avg_of_day));
+
+
         //int month = new Date().getMonth();
         //int day = new Date().getDate();
 
@@ -118,13 +139,6 @@ public class ProgressActivity extends AppCompatActivity {
         // sum of blood sugar/ number of non empty inputs
         // add to chart monday
 
-        theData.add(new Data("MON", 5));
-        theData.add(new Data("TUES", 10));
-        theData.add(new Data("WED", 20));
-        theData.add(new Data("THURS", 15));
-        theData.add(new Data("FRI", 30));
-        theData.add(new Data("SAT", 10));
-        theData.add(new Data("SUN", 50));
         // find way to reset after all days have been filled
         // average blood sugar is total amount of blood sugar in day/amount of tests that day
     }

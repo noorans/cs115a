@@ -6,27 +6,30 @@ import android.os.Bundle;
 //import android.view.Menu;
 //import android.view.MenuInflater;
 //import android.view.MenuItem;
-import android.util.Log;
+
 import android.view.View;
 
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
+
 import android.widget.TextView;
-
-import java.util.ArrayList;
-
-import static com.example.sugaranalysis.SettingsFragment.PREFERENCE_HEIGHT;
-import static com.example.sugaranalysis.SettingsFragment.PREFERENCE_WEIGHT;
-
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView progressButton, bmiButton, alertsButton, contactsButton,
             settingsButton, logsButton, homeButton;
-    int i;
+
+    ImageButton beforeBreakfastButton, afterBreakfastButton, beforeLunchButton, afterLunchButton,
+            beforeDinnerButton, afterDinnerButton, beforeWorkoutButton, afterWorkoutButton;
+
+    TextView beforeBreakfast, afterBreakfast, beforeLunch, afterLunch, beforeDinner, afterDinner,
+        beforeWorkout, afterWorkout;
+
+    EditText beforeBreakfastBS, afterBreakfastBS, beforeLunchBS, afterLunchBS,
+            beforeDinnerBS, afterDinnerBS, beforeWorkoutBS, afterWorkoutBS;
+
 
     //private Button sugarInputbtn;
     //private ListView sugarInputlv;
@@ -45,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         log = new LogDB(this,LogDB.DB_NAME, null, 1);
 
 
-
-
         // buttons/icons
         homeButton = findViewById(R.id.titleSugar);
         progressButton = findViewById(R.id.progress);
@@ -57,34 +58,34 @@ public class MainActivity extends AppCompatActivity {
         logsButton = findViewById(R.id.logs);
 
         // TextViews for moment names
-        final TextView beforeBreakfast = findViewById(R.id.beforeBreakfast);
-        final TextView afterBreakfast = findViewById(R.id.afterBreakfast);
-        final TextView beforeLunch = findViewById(R.id.beforeLunch);
-        final TextView afterLunch = findViewById(R.id.afterLunch);
-        final TextView beforeDinner = findViewById(R.id.beforeDinner);
-        final TextView afterDinner = findViewById(R.id.afterDinner);
-        final TextView beforeWorkout = findViewById(R.id.beforeWorkout);
-        final TextView afterWorkout = findViewById(R.id.afterWorkout);
+        beforeBreakfast = findViewById(R.id.beforeBreakfast);
+        afterBreakfast = findViewById(R.id.afterBreakfast);
+        beforeLunch = findViewById(R.id.beforeLunch);
+        afterLunch = findViewById(R.id.afterLunch);
+        beforeDinner = findViewById(R.id.beforeDinner);
+        afterDinner = findViewById(R.id.afterDinner);
+        beforeWorkout = findViewById(R.id.beforeWorkout);
+        afterWorkout = findViewById(R.id.afterWorkout);
 
         // EditTexts for BS
-        EditText beforeBreakfastBS = findViewById(R.id.bbBS);
-        EditText afterBreakfastBS = findViewById(R.id.abBS);
-        EditText beforeLunchBS = findViewById(R.id.blBS);
-        EditText afterLunchBS = findViewById(R.id.alBS);
-        EditText beforeDinnerBS = findViewById(R.id.bdBS);
-        EditText afterDinnerBS = findViewById(R.id.adBS);
-        EditText beforeWorkoutBS = findViewById(R.id.bwBS);
-        EditText afterWorkoutBS = findViewById(R.id.awBS);
+        beforeBreakfastBS = findViewById(R.id.bbBS);
+        afterBreakfastBS = findViewById(R.id.abBS);
+        beforeLunchBS = findViewById(R.id.blBS);
+        afterLunchBS = findViewById(R.id.alBS);
+        beforeDinnerBS = findViewById(R.id.bdBS);
+        afterDinnerBS = findViewById(R.id.adBS);
+        beforeWorkoutBS = findViewById(R.id.bwBS);
+        afterWorkoutBS = findViewById(R.id.awBS);
 
         // Buttons for BS
-        Button beforeBreakfastButton = findViewById(R.id.bbButton);
-        Button afterBreakfastButton = findViewById(R.id.abButton);
-        Button beforeLunchButton = findViewById(R.id.blButton);
-        Button afterLunchButton = findViewById(R.id.alButton);
-        Button beforeDinnerButton = findViewById(R.id.bdButton);
-        Button afterDinnerButton = findViewById(R.id.adButton);
-        Button beforeWorkoutButton = findViewById(R.id.bwButton);
-        Button afterWorkoutButton = findViewById(R.id.awButton);
+        beforeBreakfastButton = findViewById(R.id.bbButton);
+        afterBreakfastButton = findViewById(R.id.abButton);
+        beforeLunchButton = findViewById(R.id.blButton);
+        afterLunchButton = findViewById(R.id.alButton);
+        beforeDinnerButton = findViewById(R.id.bdButton);
+        afterDinnerButton = findViewById(R.id.adButton);
+        beforeWorkoutButton = findViewById(R.id.bwButton);
+        afterWorkoutButton = findViewById(R.id.awButton);
 
 
         // start new activity to view settings activity
@@ -116,83 +117,100 @@ public class MainActivity extends AppCompatActivity {
         beforeBreakfastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                beforeBreakfastButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.bbBS);
                 String bs = bstext.getText().toString();
                 String moment = beforeBreakfast.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
         afterBreakfastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                afterBreakfastButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.abBS);
                 String bs = bstext.getText().toString();
                 String moment = afterBreakfast.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
         beforeLunchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                beforeLunchButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.blBS);
                 String bs = bstext.getText().toString();
                 String moment = beforeLunch.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
         afterLunchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                afterLunchButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.alBS);
                 String bs = bstext.getText().toString();
                 String moment = afterLunch.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
         beforeDinnerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                beforeDinnerButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.bdBS);
                 String bs = bstext.getText().toString();
                 String moment = beforeDinner.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
         afterDinnerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                afterDinnerButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.adBS);
                 String bs = bstext.getText().toString();
                 String moment = afterDinner.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
         beforeWorkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                beforeWorkoutButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.bwBS);
                 String bs = bstext.getText().toString();
                 String moment = beforeWorkout.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
         afterWorkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                afterWorkoutButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.awBS);
                 String bs = bstext.getText().toString();
                 String moment = afterWorkout.getText().toString();
                 addToDataBase(bs, moment);
+                Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
             }
         });
 
+        // check that if all filled after two hours, then turn all buttons back to open
 
     }
     // start new activity to view progress activity
@@ -217,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    
+
 
     public void addToDataBase(String bs, String moment){
 
