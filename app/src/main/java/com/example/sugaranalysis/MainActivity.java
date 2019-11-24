@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             beforeDinnerButton, afterDinnerButton, beforeWorkoutButton, afterWorkoutButton;
 
     TextView beforeBreakfast, afterBreakfast, beforeLunch, afterLunch, beforeDinner, afterDinner,
-        beforeWorkout, afterWorkout;
+            beforeWorkout, afterWorkout;
 
     EditText beforeBreakfastBS, afterBreakfastBS, beforeLunchBS, afterLunchBS,
             beforeDinnerBS, afterDinnerBS, beforeWorkoutBS, afterWorkoutBS;
