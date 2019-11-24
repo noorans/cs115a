@@ -12,6 +12,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 
+
 public class NotifyDemoActivity extends AppCompatActivity {
 
     NotificationManager notificationManager;
@@ -76,4 +77,3 @@ public class NotifyDemoActivity extends AppCompatActivity {
 
     }
 }
-
