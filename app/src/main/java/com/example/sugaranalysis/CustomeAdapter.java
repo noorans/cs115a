@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static com.example.sugaranalysis.SettingsFragment.PREFERENCE_HEIGHT;
+import static com.example.sugaranalysis.SettingsFragment.PREFERENCE_WEIGHT;
+
 public class CustomeAdapter extends BaseAdapter {
 
     private Context context;

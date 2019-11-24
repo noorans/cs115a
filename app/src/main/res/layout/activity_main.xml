@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -174,23 +175,255 @@
     </RelativeLayout>
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sugarInputbtn"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorBlue"
-        android:padding="10dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="VIEW ALL BLOOD SUGAR INPUTS" />
+        <TextView
+            android:id="@+id/beforeBreakfast"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Before Breakfast"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/bbButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:divider="@null"/>
+        <EditText
+            android:id="@+id/bbBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/bbButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beforeBreakfast" />
+
+        <TextView
+            android:id="@+id/afterBreakfast"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="After Breakfast"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/abButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bbBS" />
+
+        <EditText
+            android:id="@+id/abBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/abButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/afterBreakfast" />
+
+        <TextView
+            android:id="@+id/beforeLunch"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Before Lunch"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/blButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abBS" />
+
+        <EditText
+            android:id="@+id/blBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/blButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beforeLunch" />
+
+        <TextView
+            android:id="@+id/afterLunch"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="After Lunch"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/blButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blBS" />
+
+        <EditText
+            android:id="@+id/alBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/alButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/afterLunch" />
+
+        <TextView
+            android:id="@+id/beforeDinner"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Before Dinner"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/alButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alBS" />
+
+        <EditText
+            android:id="@+id/bdBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/bdButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beforeDinner" />
+
+        <TextView
+            android:id="@+id/afterDinner"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="After Dinner"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/adButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bdBS" />
+
+        <EditText
+            android:id="@+id/adBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/adButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/afterDinner" />
+
+        <TextView
+            android:id="@+id/beforeWorkout"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Before Workout"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/bwButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adBS" />
+
+        <EditText
+            android:id="@+id/bwBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/bwButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beforeWorkout" />
+
+        <TextView
+            android:id="@+id/afterWorkout"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="After Workout"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toStartOf="@+id/awButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bwBS" />
+
+        <EditText
+            android:id="@+id/awBS"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:ems="10"
+            android:hint="BS here"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/awButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/afterWorkout" />
+
+        <Button
+            android:id="@+id/bbButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beforeBreakfast"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/abButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/afterBreakfast"
+            app:layout_constraintTop_toBottomOf="@+id/bbButton" />
+
+        <Button
+            android:id="@+id/blButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beforeLunch"
+            app:layout_constraintTop_toBottomOf="@+id/abButton" />
+
+        <Button
+            android:id="@+id/alButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/afterLunch"
+            app:layout_constraintTop_toBottomOf="@+id/blButton" />
+
+        <Button
+            android:id="@+id/bdButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beforeDinner"
+            app:layout_constraintTop_toBottomOf="@+id/alBS" />
+
+        <Button
+            android:id="@+id/adButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/afterDinner"
+            app:layout_constraintTop_toBottomOf="@+id/bdBS" />
+
+        <Button
+            android:id="@+id/bwButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/beforeWorkout"
+            app:layout_constraintTop_toBottomOf="@+id/adBS" />
+
+        <Button
+            android:id="@+id/awButton"
+            android:layout_width="163dp"
+            android:layout_height="74dp"
+            android:layout_marginBottom="2dp"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/afterWorkout"
+            app:layout_constraintTop_toBottomOf="@+id/bwBS" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>
