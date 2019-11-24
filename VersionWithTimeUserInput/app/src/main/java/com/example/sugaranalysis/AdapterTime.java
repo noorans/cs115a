@@ -6,10 +6,12 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AdapterTime extends BaseAdapter {
@@ -57,7 +59,7 @@ public class AdapterTime extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.lv_item, null, true);
+            convertView = inflater.inflate(R.layout.time_element, null, true);
             holder.timeView = (TextView) convertView.findViewById(R.id.timeBox);
             holder.editTime = (EditText) convertView.findViewById(R.id.timeEdit);
 
