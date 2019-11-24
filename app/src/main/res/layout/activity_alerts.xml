@@ -12,6 +12,7 @@
         android:id="@+id/toplabel"
         android:layout_width="441dp"
         android:layout_height="94dp"
+        android:layout_marginBottom="56dp"
         android:src="@drawable/top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,8 +67,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/timeList"
+        app:layout_constraintVertical_bias="0.994" />
 
     <ImageView
         android:id="@+id/logs"
@@ -136,6 +137,17 @@
         app:layout_constraintVertical_bias="0.525" />
 
     <!-- add any alert/notifcation widgets here-->
+    <ListView
+        android:id="@+id/timeList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_line"
+        app:layout_constraintVertical_bias="0.255"
+        app:layout_goneMarginTop="200dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
