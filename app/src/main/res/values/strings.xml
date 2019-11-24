@@ -19,7 +19,6 @@
     <string name="obesity">OBESE</string>
 
 
-
     <string-array name="pref_sex">
         <item>Male</item>
         <item>Female</item>

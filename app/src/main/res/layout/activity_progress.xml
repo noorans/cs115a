@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -7,188 +9,159 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/toplabel"
+        android:layout_width="441dp"
+        android:layout_height="94dp"
+        android:src="@drawable/top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/toplabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:adjustViewBounds="true"
-            android:src="@drawable/bluerectangle" />
-
-        <TextView
-            android:id="@+id/sugarAnalysisTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sugar_analysis"
-            android:onClick="clickHome"
-            android:contextClickable="true"
-            android:layout_alignLeft="@id/toplabel"
-            android:layout_alignTop="@id/toplabel"
-            android:layout_alignRight="@id/toplabel"
-            android:layout_alignBottom="@id/toplabel"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="25dp"
-            android:textSize="25dp"/>
-
-        <ImageView
-            android:id="@+id/whiteLineTopLabel"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_alignLeft="@id/toplabel"
-            android:layout_alignTop="@id/toplabel"
-            android:layout_alignRight="@id/toplabel"
-            android:layout_alignBottom="@id/toplabel"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="43dp"
-            android:layout_marginRight="-2dp"
-            android:layout_marginBottom="6dp"
-            android:src="@drawable/whiteline1" />
-
-        <ImageView
-            android:id="@+id/settingsIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/toplabel"
-            android:layout_alignRight="@id/toplabel"
-            android:layout_alignBottom="@id/toplabel"
-            android:layout_marginRight="7dp"
-            android:layout_marginBottom="30dp"
-            android:src="@drawable/settings" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/titleSugar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/title"
+        android:onClick="clickHome"
+        app:layout_constraintBottom_toBottomOf="@+id/toplabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toplabel"
+        app:layout_constraintVertical_bias="0.562" />
 
-        <ImageView
-            android:id="@+id/toplabel2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="-30dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/bluerectangle" />
+    <ImageView
+        android:id="@+id/top_line"
+        android:layout_width="425dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/top_line"
+        app:layout_constraintBottom_toBottomOf="@+id/toplabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-            android:id="@+id/progressIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginRight="290dp"
-            android:layout_marginTop="1.5dp"
-            android:onClick="clickProgress"
-            android:contextClickable="true"
-            android:src="@drawable/progreschart1" />
+    <ImageView
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/settings"
+        android:onClick="saveInformation"
+        app:layout_constraintBottom_toBottomOf="@+id/toplabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.981"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/progressLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="28dp"
-            android:onClick="clickProgress"
-            android:contextClickable="true"
-            android:text="@string/progress_label"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/bottom_bar"
+        android:layout_width="454dp"
+        android:layout_height="64dp"
+        android:src="@drawable/bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings"
+        app:layout_constraintVertical_bias="1.0" />
 
-        <ImageView
-            android:id="@+id/bmiIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginTop="-1dp"
-            android:layout_marginRight="102dp"
-            android:onClick="clickBMI"
-            android:src="@drawable/bmiicon1" />
+    <ImageView
+        android:id="@+id/logs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="215dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/logs"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bottom_bar"
+        app:layout_constraintTop_toTopOf="@+id/bottom_bar"
+        app:layout_constraintVertical_bias="0.525" />
 
-        <TextView
-            android:id="@+id/bmiLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginLeft="141dp"
-            android:layout_marginTop="27.8dp"
-            android:text="@string/bmi_label"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/alerts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/alerts"
+        android:onClick="clickAlerts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/contacts"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toEndOf="@+id/logs"
+        app:layout_constraintTop_toTopOf="@+id/bottom_bar"
+        app:layout_constraintVertical_bias="0.05" />
 
-        <ImageView
-            android:id="@+id/bellIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="-1.4dp"
-            android:src="@drawable/bellicon1" />
+    <ImageView
+        android:id="@+id/contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/contacts"
+        android:onClick=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintStart_toEndOf="@+id/logs"
+        app:layout_constraintTop_toTopOf="@+id/bottom_bar"
+        app:layout_constraintVertical_bias="0.525" />
 
-        <TextView
-            android:id="@+id/bellLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="27.8dp"
-            android:text="@string/bell_label"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bmi"
+        android:onClick="clickBMI"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/logs"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom_bar"
+        app:layout_constraintVertical_bias="0.525" />
 
-        <ImageView
-            android:id="@+id/contactIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="-1dp"
-            android:src="@drawable/usericon1" />
+    <ImageView
+        android:id="@+id/progress"
+        android:onClick="clickProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/progress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bmi"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom_bar"
+        app:layout_constraintVertical_bias="0.525" />
 
-        <TextView
-            android:id="@+id/contactLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/toplabel2"
-            android:layout_alignRight="@id/toplabel2"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="27.8dp"
-            android:text="@string/contact_label"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
-
-    </RelativeLayout>
 
     <TextView
         android:id="@+id/weeklyProgressLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="WEEKLY PROGRESS"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        android:text="MY WEEKLY PROGRESS"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barchart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toplabel" />
 
     <com.github.mikephil.charting.charts.BarChart
-        android:layout_marginTop="20dp"
+        android:id="@+id/barchart"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginBottom="30dp"
-        android:id= "@+id/barchart"/>
-</LinearLayout>
+        android:layout_height="420dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listView"
+        app:layout_constraintVertical_bias="0.292" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
