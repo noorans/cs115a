@@ -70,9 +70,8 @@ public class LogDB extends SQLiteOpenHelper {
             db.insert(TABLE_NAME, null, cv);
         }
     }
-
-
-    //This method will be used when we want to query anything in our table
+    
+    // This method will be used when we want to query anything in our table
     public Cursor logQuery( String filter) {
         SQLiteDatabase db = getReadableDatabase();
 
@@ -81,7 +80,12 @@ public class LogDB extends SQLiteOpenHelper {
 // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
-                "AVG_BS"
+                "AVG_BS",
+                "MOMENT",
+                "DATE",
+                "TIME",
+                "HEIGHT",
+                "WEIGHT"
         };
 
         Cursor cursor = db.query(
