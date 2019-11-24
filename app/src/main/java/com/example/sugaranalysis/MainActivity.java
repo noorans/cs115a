@@ -16,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView progressButton, bmiButton, alertsButton, contactsButton,
@@ -30,11 +34,9 @@ public class MainActivity extends AppCompatActivity {
     EditText beforeBreakfastBS, afterBreakfastBS, beforeLunchBS, afterLunchBS,
             beforeDinnerBS, afterDinnerBS, beforeWorkoutBS, afterWorkoutBS;
 
-
-    //private Button sugarInputbtn;
-    //private ListView sugarInputlv;
-    //private CustomeAdapter customeAdapter;
-    //public ArrayList<EditModel> editModelArrayList;
+    String currentTime;
+    String timeToCompare;
+    boolean check;
     public static LogDB log;
 
 
@@ -43,8 +45,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        currentTime = new SimpleDateFormat("HH:mm:ss").format(new Date());
+        timeToCompare = "00:00:00";
 
-        // Instanciating the Database
+        // instanciating the database
         log = new LogDB(this,LogDB.DB_NAME, null, 1);
 
 
@@ -87,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
         beforeWorkoutButton = findViewById(R.id.bwButton);
         afterWorkoutButton = findViewById(R.id.awButton);
 
+        // buttons revert to empty
+        // when time is 00:00:00 (12AM military time)
+        check = currentTime.equals(timeToCompare);
 
         // start new activity to view settings activity
         settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -106,23 +113,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-        // Setting on click listeners for all buttons on main page
-
-        // FUNCTION
-        // onClick of button, set parameters for database call
-        // call addToDataBase
-
         beforeBreakfastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 beforeBreakfastButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.bbBS);
                 String bs = bstext.getText().toString();
-                String moment = beforeBreakfast.getText().toString();
+                String moment = beforeBreakfastBS.getText().toString();
+                System.out.println(bs + " ," + moment);
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
 
@@ -135,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
                 String moment = afterBreakfast.getText().toString();
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
 
@@ -147,6 +153,9 @@ public class MainActivity extends AppCompatActivity {
                 String moment = beforeLunch.getText().toString();
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
 
@@ -159,6 +168,9 @@ public class MainActivity extends AppCompatActivity {
                 String moment = afterLunch.getText().toString();
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
 
@@ -171,6 +183,9 @@ public class MainActivity extends AppCompatActivity {
                 String moment = beforeDinner.getText().toString();
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
 
@@ -183,6 +198,9 @@ public class MainActivity extends AppCompatActivity {
                 String moment = afterDinner.getText().toString();
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
 
@@ -195,6 +213,9 @@ public class MainActivity extends AppCompatActivity {
                 String moment = beforeWorkout.getText().toString();
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
 
@@ -207,12 +228,13 @@ public class MainActivity extends AppCompatActivity {
                 String moment = afterWorkout.getText().toString();
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
+                if(check) {
+                    beforeBreakfastButton.setBackgroundResource(R.drawable.open);
+                }
             }
         });
-
-        // check that if all filled after two hours, then turn all buttons back to open
-
     }
+
     // start new activity to view progress activity
     public void clickProgress(View v) {
         Intent intent = new Intent(MainActivity.this, ProgressActivity.class);
@@ -236,9 +258,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void clickAlerts(View v) {
+        Intent intent = new Intent(MainActivity.this, AlertsActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+    }
+
 
     public void addToDataBase(String bs, String moment){
-
         SharedPreferences myPreferences = getSharedPreferences("com.example.sugaranalysis_preferences", 0);
         String date;
         String time;
@@ -247,8 +274,6 @@ public class MainActivity extends AppCompatActivity {
         String weight = myPreferences.getString("userWeight", "");
         date = "11/21/2019";
         time = "6:00pm";
-
         log.addEntry(bs,moment,date,time,height,weight);
     }
-
 }

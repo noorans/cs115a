@@ -65,7 +65,7 @@ public class ProgressActivity extends AppCompatActivity {
         logsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProgressActivity.this, NextActivity.class);
+                Intent intent = new Intent(ProgressActivity.this, LogActivity.class);
                 startActivity(intent);
 
             }
@@ -125,7 +125,9 @@ public class ProgressActivity extends AppCompatActivity {
         // cannot due currentdate+ 1
         log.fillList(theAvg, "11/21/2019");
         for(int i = 0; i < theAvg.size(); i ++) {
-            sum = Integer.valueOf(theAvg.get(i).getLogAvg_bs());
+           if(!(theAvg.get(i).getLogAvg_bs().equals(""))) {
+               sum = Integer.valueOf(theAvg.get(i).getLogAvg_bs());
+           }
         }
         int avg_of_day = sum/theAvg.size();
         theData.add(new Data("11/21/19", avg_of_day));
@@ -162,6 +164,13 @@ public class ProgressActivity extends AppCompatActivity {
     // start new activity to view BMI acitvity
     public void clickBMI(View v) {
         Intent intent = new Intent(ProgressActivity.this, BMIActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+        finish();
+    }
+
+    public void clickAlerts(View v) {
+        Intent intent = new Intent(ProgressActivity.this, AlertsActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();

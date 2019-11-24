@@ -90,7 +90,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/alerts"
-        android:onClick=""
+        android:onClick="clickAlerts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/contacts"
         app:layout_constraintHorizontal_bias="0.07"

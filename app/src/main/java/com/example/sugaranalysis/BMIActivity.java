@@ -52,6 +52,7 @@ public class BMIActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BMIActivity.this, SettingsActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -59,7 +60,7 @@ public class BMIActivity extends AppCompatActivity {
         logsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BMIActivity.this, NextActivity.class);
+                Intent intent = new Intent(BMIActivity.this, LogActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -104,6 +105,13 @@ public class BMIActivity extends AppCompatActivity {
     // start new activity to view progress activity
     public void clickProgress(View v) {
         Intent intent = new Intent(BMIActivity.this, ProgressActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+        finish();
+    }
+
+    public void clickAlerts(View v) {
+        Intent intent = new Intent(BMIActivity.this, AlertsActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();
