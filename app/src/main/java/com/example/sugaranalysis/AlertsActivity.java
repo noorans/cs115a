@@ -6,10 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class AlertsActivity extends AppCompatActivity {
     ImageView progressButton, bmiButton, alertsButton, contactsButton,
             settingsButton, logsButton, homeButton;
+
+    private ListView tInput;
+
+    private AdapterTime adapterTime;
+    public ArrayList<TimeItemCmp> timeItemCmpArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,12 @@ public class AlertsActivity extends AppCompatActivity {
         contactsButton = findViewById(R.id.contacts);
         settingsButton = findViewById(R.id.settings);
         logsButton = findViewById(R.id.logs);
+
+        tInput = (ListView) findViewById(R.id.timeList);
+
+        timeItemCmpArrayList = timeListPopulate();
+        adapterTime = new AdapterTime(AlertsActivity.this, timeItemCmpArrayList);
+        tInput.setAdapter(adapterTime);
 
         // start new activity to view settings activity
         settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +87,23 @@ public class AlertsActivity extends AppCompatActivity {
         intent.setType("*/*");
         startActivity(intent);
         finish();
+    }
+
+    private ArrayList<TimeItemCmp> timeListPopulate(){
+
+        ArrayList<TimeItemCmp> lst = new ArrayList<>();
+        String[] array = {"Before Breakfast Time","After Breakfast Time",
+                "Before Lunch Time","After Lunch Time",
+                "Before Dinner Time","After Dinner Time",
+                "Before Workout Time","After Workout Time"};
+
+        for(int i = 0; i < 8; i++) {
+            TimeItemCmp tic = new TimeItemCmp();
+            tic.setTitle(array[i]);
+            tic.setEditTextValue(String.valueOf(i));
+            lst.add(tic);
+        }
+        return lst;
     }
 
 
