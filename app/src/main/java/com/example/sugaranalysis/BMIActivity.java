@@ -7,14 +7,22 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.daasuu.cat.CountAnimationTextView;
 
 public class BMIActivity extends AppCompatActivity {
-    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+    ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
     EditText weight, height;
+    int pounds, inches;
+    float meters, kg;
+    float formulation;
+    ImageButton sI, uS;
+    public boolean metric;
     TextView category;
     CountAnimationTextView result;
 
@@ -28,13 +36,16 @@ public class BMIActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
         category = findViewById(R.id.category);
 
+        sI = findViewById(R.id.SI);
+        uS = findViewById(R.id.US);
+
         // buttons/icons
         homeButton = findViewById(R.id.titleSugar);
         logsButton = findViewById(R.id.logs);
         progressButton = findViewById(R.id.progress);
         bmiButton = findViewById(R.id.bmi);
         alertsButton = findViewById(R.id.alerts);
-        contactsButton = findViewById(R.id.contacts);
+        extrasButton = findViewById(R.id.extra);
         settingsButton = findViewById(R.id.settings);
 
         SharedPreferences prefs = getSharedPreferences("bmiprefs", MODE_PRIVATE);
@@ -45,6 +56,8 @@ public class BMIActivity extends AppCompatActivity {
             result.setText(restoredResult);
             category.setText(restoredCategory);
         }
+
+
 
         // start new activity to view settings activity
         settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -66,15 +79,43 @@ public class BMIActivity extends AppCompatActivity {
             }
         });
 
+        sI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sI.setBackgroundResource(R.drawable.filled);
+                Toast.makeText(BMIActivity.this, "Meters and kilograms required",
+                        Toast.LENGTH_SHORT).show();
+                metric = true;
+            }
+        });
+
+        uS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uS.setBackgroundResource(R.drawable.filled);
+                Toast.makeText(BMIActivity.this, "Inches and pounds required",
+                        Toast.LENGTH_SHORT).show();
+                metric = false;
+            }
+        });
     }
 
     public void calculateBMI(View view) {
         String heightStr = height.getText().toString();
         String weightStr = weight.getText().toString();
-        int weights = Integer.parseInt(weightStr);
-        int heights = Integer.parseInt(heightStr);
-        float formulation = weights*703/(heights*heights);
-        displayBMI(formulation);
+        if(metric) {
+
+            kg = Float.valueOf(weightStr);
+            meters = Float.valueOf(heightStr);
+            formulation = kg/(meters * meters);
+            displayBMI(formulation);
+        }
+        else {
+            pounds = Integer.valueOf(weightStr);
+            inches = Integer.valueOf(heightStr);
+            formulation = pounds*703/(inches*inches);
+            displayBMI(formulation);
+        }
     }
 
     public void displayBMI(final float bmi) {
@@ -128,6 +169,13 @@ public class BMIActivity extends AppCompatActivity {
     // start new activity to view BMI acitvity
     public void clickBMI(View v) {
         Intent intent = new Intent(BMIActivity.this, BMIActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+        finish();
+    }
+
+    public void clickExtras(View v) {
+        Intent intent = new Intent(BMIActivity.this, ExtraActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();

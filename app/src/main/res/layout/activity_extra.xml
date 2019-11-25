@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -14,9 +12,11 @@
         android:layout_width="441dp"
         android:layout_height="94dp"
         android:src="@drawable/top"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/titleSugar"
@@ -49,7 +49,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:src="@drawable/settings"
-        android:onClick="saveInformation"
         app:layout_constraintBottom_toBottomOf="@+id/toplabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.981"
@@ -99,11 +98,10 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
-        android:id="@+id/extra"
+        android:id="@+id/contacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/contacts"
-        android:onClick="clickExtras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.811"
@@ -137,31 +135,43 @@
         app:layout_constraintTop_toTopOf="@+id/bottom_bar"
         app:layout_constraintVertical_bias="0.525" />
 
-
-    <TextView
-        android:id="@+id/weeklyProgressLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="MY WEEKLY PROGRESS"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/barchart"
+    <ImageView
+        android:id="@+id/chart"
+        android:layout_width="393dp"
+        android:layout_height="399dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/chart"
+        app:layout_constraintBottom_toTopOf="@+id/number_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toplabel" />
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barchart"
-        android:layout_width="match_parent"
-        android:layout_height="420dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+    <TextView
+        android:id="@+id/number_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="460dp"
+        android:textColor="@color/colorDarkBlue"
+        android:text="American Diabetes Association Hotline:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView"
-        app:layout_constraintVertical_bias="0.292" />
+        app:layout_constraintTop_toBottomOf="@+id/toplabel" />
 
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginEnd="5dp"
+        android:autoLink="phone"
+        android:textColor="@color/colorDarkBlue"
+        android:text="1-800-342-2383"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/number_label"
+        app:layout_constraintTop_toBottomOf="@+id/toplabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
