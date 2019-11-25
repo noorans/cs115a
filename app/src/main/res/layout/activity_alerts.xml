@@ -153,17 +153,17 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/meal"
+        android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintBottom_toTopOf="@+id/time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleAlerts" />
 
     <EditText
-        android:id="@+id/description"
+        android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -174,6 +174,8 @@
         app:layout_constraintTop_toBottomOf="@+id/titleAlerts"
         app:layout_constraintVertical_bias="0.015" />
 
+
+
     <Button
         android:id="@+id/notifyButton"
         android:layout_width="wrap_content"
@@ -183,8 +185,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

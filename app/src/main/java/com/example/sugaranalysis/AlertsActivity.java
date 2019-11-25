@@ -2,6 +2,7 @@ package com.example.sugaranalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,20 +10,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import com.allyants.notifyme.NotifyMe;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
-import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
-public class AlertsActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,
-        TimePickerDialog.OnTimeSetListener {
+public class AlertsActivity extends AppCompatActivity  {
     ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
-    TimePickerDialog timePickerDialog;
-    DatePickerDialog datePickerDialog;
-    EditText meal, description;
+    EditText label, time;
     Button notifyButton;
+    String labels, times;
     Calendar now = Calendar.getInstance();
+
 
 
     @Override
@@ -38,24 +40,12 @@ public class AlertsActivity extends AppCompatActivity implements DatePickerDialo
         settingsButton = findViewById(R.id.settings);
         logsButton = findViewById(R.id.logs);
 
-        meal = findViewById(R.id.meal);
-        description = findViewById(R.id.description);
+        label = findViewById(R.id.label);
+        time = findViewById(R.id.time);
         notifyButton = findViewById(R.id.notifyButton);
 
-        datePickerDialog = DatePickerDialog.newInstance(
-                AlertsActivity.this,
-                now.get(Calendar.YEAR),
-                now.get(Calendar.MONTH),
-                now.get(Calendar.DAY_OF_MONTH)
-        );
 
-        timePickerDialog = TimePickerDialog.newInstance(
-                AlertsActivity.this,
-                now.get(Calendar.HOUR_OF_DAY),
-                now.get(Calendar.MINUTE),
-                now.get(Calendar.SECOND),
-                false
-        );
+
 
         // start new activity to view settings activity
         settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -78,37 +68,51 @@ public class AlertsActivity extends AppCompatActivity implements DatePickerDialo
         notifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                datePickerDialog.show(getFragmentManager(), "Date Picker Dialog");
+                labels = label.getText().toString();
+                times = time.getText().toString();
+                parseForTime(labels, times);
+
             }
         });
     }
 
-    // SET DATE
-    @Override
-    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        now.set(Calendar.YEAR,year);
-        now.set(Calendar.MONTH,monthOfYear);
-        now.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        timePickerDialog.show(getFragmentManager(), "Time Picker Dialog");
-    }
+    public void parseForTime(String labels, String times) {
+        SimpleDateFormat time = new SimpleDateFormat("hh:mm aa");
+        String [] parts = times.split(" ");
+        String am_or_pm = parts[1];
+        Calendar now = Calendar.getInstance();
+        Date date = null;
 
-    @Override
-    public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
-        now.set(Calendar.HOUR_OF_DAY,hourOfDay);
-        now.set(Calendar.MINUTE,minute);
-        now.set(Calendar.SECOND,second);
-        Intent intent = new Intent(getApplicationContext(),AlertsActivity.class);
+        try {
+           date = time.parse(times);
+
+
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int hours = date.getHours();
+        int mins =  date.getMinutes();
+        now.set(Calendar.HOUR, hours);
+        now.set(Calendar.MINUTE, mins);
+        if(am_or_pm.equals("AM")) {
+            now.set(Calendar.AM_PM, 0);
+        }
+        else if (am_or_pm.equals("PM")){
+            now.set(Calendar.AM_PM, 1);
+        }
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("test","I am a String");
         NotifyMe notifyMe = new NotifyMe.Builder(getApplicationContext())
-                .title(meal.getText().toString())
-                .content(description.getText().toString())
+                .title(labels)
                 .color(255,0,0,255)
                 .led_color(255,255,255,255)
                 .time(now)
                 .addAction(intent,"Snooze",false)
                 .key("test")
                 .addAction(new Intent(),"Dismiss",true,false)
-                .addAction(intent,"Done")
+                .addAction(intent, "Home")
                 .large_icon(R.mipmap.ic_launcher_round)
                 .build();
     }
