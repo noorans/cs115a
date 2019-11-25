@@ -18,7 +18,9 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     String timeToCompare;
     boolean check;
     public static LogDB log;
+    Calendar cal = Calendar.getInstance();
 
 
     @Override
@@ -278,7 +281,11 @@ public class MainActivity extends AppCompatActivity {
 
         String height = myPreferences.getString("userHeight","");
         String weight = myPreferences.getString("userWeight", "");
-        date = "11/21/2019";
+        //date = "11/21/2019";
+        //System.out.println(cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US));
+        date = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
+        //date = String.valueOf(cal.get(Calendar.DAY_OF_WEEK));
+        System.out.println(date);
         time = "6:00pm";
         log.addEntry(bs,moment,date,time,height,weight);
     }

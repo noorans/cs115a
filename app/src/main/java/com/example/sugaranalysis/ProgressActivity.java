@@ -18,11 +18,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import static com.example.sugaranalysis.MainActivity.log;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 
 public class ProgressActivity extends AppCompatActivity {
@@ -32,9 +36,19 @@ public class ProgressActivity extends AppCompatActivity {
     ArrayList<String> labelsNames;
     ArrayList<BarEntry> barEntry;
     ArrayList<Data> theData = new ArrayList<>();
+    Calendar cals = Calendar.getInstance();
+    int count = 0;
 
 
-    ArrayList<LogObject> theAvg = new ArrayList<>();
+
+    ArrayList<LogObject> theMon = new ArrayList<>();
+    ArrayList<LogObject> theTue = new ArrayList<>();
+    ArrayList<LogObject> theWed = new ArrayList<>();
+    ArrayList<LogObject> theThu = new ArrayList<>();
+    ArrayList<LogObject> theFri = new ArrayList<>();
+    ArrayList<LogObject> theSat = new ArrayList<>();
+    ArrayList<LogObject> theSun = new ArrayList<>();
+
 
     int blue1, blue2, blue3;
     @Override
@@ -51,6 +65,8 @@ public class ProgressActivity extends AppCompatActivity {
         alertsButton = findViewById(R.id.alerts);
         extrasButton = findViewById(R.id.extra);
         settingsButton = findViewById(R.id.settings);
+
+
 
         // start new activity to view settings activity
         settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +94,6 @@ public class ProgressActivity extends AppCompatActivity {
         labelsNames = new ArrayList<>();
 
         fillAverageBloodSugar();
-
         // barchart arraylist takes in a label and value
         for(int i = 0; i < theData.size(); i ++) {
             String month = theData.get(i).getDays();
@@ -112,37 +127,57 @@ public class ProgressActivity extends AppCompatActivity {
         barChart.animateY(200);
         barChart.invalidate();
 
+
     }
 
     // barchart stuff
-    private void fillAverageBloodSugar() {
+   private void fillAverageBloodSugar() {
+        String currentTime = new SimpleDateFormat("HH:mm:ss").format(new Date());
+        String timeToCompare = "23:59:59";
+        String day = cals.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
+
+        boolean check = currentTime.equals(timeToCompare);
+
+       log.fillList(theMon, "Mon");
+       log.fillList(theTue, "Tue");
+       log.fillList(theWed, "Wed");
+       log.fillList(theThu, "Thu");
+       log.fillList(theFri, "Fri");
+       log.fillList(theSat, "Sat");
+       log.fillList(theSun, "Sun");
+
+       theData.add(new Data("MON", getAvg(theMon)));
+       theData.add(new Data("TUE", getAvg(theTue)));
+       theData.add(new Data("WED", getAvg(theWed)));
+       theData.add(new Data("THU", getAvg(theThu)));
+       theData.add(new Data("FRI", getAvg(theFri)));
+       theData.add(new Data("SAT", getAvg(theSat)));
+       theData.add(new Data("SUN", getAvg(theSun)));
+
+       if(day.equals("Sun") && check) {
+           theData.clear();
+       }
+    }
+
+    public int getAvg(ArrayList <LogObject> day) {
+
         int sum = 0;
-        //theData.clear();
-        //if date == current date
-        // fill list with values
-        // calculate average
-        // add the bar chart with  corresponding label of date
-        // cannot due currentdate+ 1
-        log.fillList(theAvg, "11/21/2019");
-        for(int i = 0; i < theAvg.size(); i ++) {
-           if(!(theAvg.get(i).getLogAvg_bs().equals(""))) {
-               sum = Integer.valueOf(theAvg.get(i).getLogAvg_bs());
-           }
+        int avg_of_day;
+        for(int i = 0; i < day.size(); i ++) {
+            if(!(day.get(i).getLogAvg_bs().equals(""))) {
+                sum = Integer.valueOf(day.get(i).getLogAvg_bs());
+            }
         }
-        int avg_of_day = sum/theAvg.size();
-        theData.add(new Data("11/21/19", avg_of_day));
-
-
-        //int month = new Date().getMonth();
-        //int day = new Date().getDate();
-
-        //for(int i = 0; i < levels.size(); i++) {
-        // if (sql.database.day MONDAY == my barchart MONDAY) {
-        // sum of blood sugar/ number of non empty inputs
-        // add to chart monday
-
-        // find way to reset after all days have been filled
-        // average blood sugar is total amount of blood sugar in day/amount of tests that day
+        System.out.println("Day size:" + day.size());
+        if(day.size() == 0) {
+            avg_of_day = 0;
+        }
+        else {
+            // need to refresh column of day somehow
+            avg_of_day = sum / day.size();
+        }
+        //System.out.println(avg_of_day);
+        return avg_of_day;
     }
 
     // start new activity to view progress activity
