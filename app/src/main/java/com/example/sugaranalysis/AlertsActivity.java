@@ -77,9 +77,9 @@ public class AlertsActivity extends AppCompatActivity  {
     }
 
     public void parseForTime(String labels, String times) {
-        SimpleDateFormat time = new SimpleDateFormat("hh:mm aa");
-        String [] parts = times.split(" ");
-        String am_or_pm = parts[1];
+        /*SimpleDateFormat time = new SimpleDateFormat("hh:mm aa");
+        //String [] parts = times.split(" ");
+        //String am_or_pm = parts[1];
         Calendar now = Calendar.getInstance();
         Date date = null;
 
@@ -93,24 +93,24 @@ public class AlertsActivity extends AppCompatActivity  {
         }
         int hours = date.getHours();
         int mins =  date.getMinutes();
-        now.set(Calendar.HOUR, hours);
-        now.set(Calendar.MINUTE, mins);
-        if(am_or_pm.equals("AM")) {
+        //now.set(Calendar.HOUR, Calendar.HOUR);
+        //now.set(Calendar.MINUTE, Calendar.MINUTE);
+        /*if(am_or_pm.equals("AM")) {
             now.set(Calendar.AM_PM, 0);
         }
         else if (am_or_pm.equals("PM")){
             now.set(Calendar.AM_PM, 1);
-        }
+        }*/
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("test","I am a String");
         NotifyMe notifyMe = new NotifyMe.Builder(getApplicationContext())
-                .title(labels)
+                .title("Time To Log Blood Sugar")
                 .color(255,0,0,255)
                 .led_color(255,255,255,255)
-                .time(now)
                 .addAction(intent,"Snooze",false)
                 .key("test")
+                //.time()
                 .addAction(new Intent(),"Dismiss",true,false)
                 .addAction(intent, "Home")
                 .large_icon(R.mipmap.ic_launcher_round)
