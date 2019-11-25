@@ -285,7 +285,6 @@ public class MainActivity extends AppCompatActivity {
         //System.out.println(cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US));
         date = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
         //date = String.valueOf(cal.get(Calendar.DAY_OF_WEEK));
-        System.out.println(date);
         time = "6:00pm";
         log.addEntry(bs,moment,date,time,height,weight);
     }

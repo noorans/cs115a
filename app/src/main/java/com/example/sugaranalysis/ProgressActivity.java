@@ -11,14 +11,12 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import static com.example.sugaranalysis.MainActivity.log;
 
@@ -37,8 +35,6 @@ public class ProgressActivity extends AppCompatActivity {
     ArrayList<BarEntry> barEntry;
     ArrayList<Data> theData = new ArrayList<>();
     Calendar cals = Calendar.getInstance();
-    int count = 0;
-
 
 
     ArrayList<LogObject> theMon = new ArrayList<>();
