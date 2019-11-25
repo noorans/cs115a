@@ -135,4 +135,43 @@
         app:layout_constraintTop_toTopOf="@+id/bottom_bar"
         app:layout_constraintVertical_bias="0.525" />
 
+    <ImageView
+        android:id="@+id/chart"
+        android:layout_width="393dp"
+        android:layout_height="399dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/chart"
+        app:layout_constraintBottom_toTopOf="@+id/number_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toplabel" />
+
+    <TextView
+        android:id="@+id/number_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="460dp"
+        android:textColor="@color/colorDarkBlue"
+        android:text="American Diabetes Association Hotline:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toplabel" />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginEnd="5dp"
+        android:autoLink="phone"
+        android:textColor="@color/colorDarkBlue"
+        android:text="1-800-342-2383"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/number_label"
+        app:layout_constraintTop_toBottomOf="@+id/toplabel" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

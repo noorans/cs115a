@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 
 
 public class ProgressActivity extends AppCompatActivity {
-    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+    ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
     BarChart barChart;
     ArrayList<String> labelsNames;
@@ -49,7 +49,7 @@ public class ProgressActivity extends AppCompatActivity {
         progressButton =  findViewById(R.id.progress);
         bmiButton = findViewById(R.id.bmi);
         alertsButton = findViewById(R.id.alerts);
-        contactsButton = findViewById(R.id.contacts);
+        extrasButton = findViewById(R.id.extra);
         settingsButton = findViewById(R.id.settings);
 
         // start new activity to view settings activity
@@ -171,6 +171,13 @@ public class ProgressActivity extends AppCompatActivity {
 
     public void clickAlerts(View v) {
         Intent intent = new Intent(ProgressActivity.this, AlertsActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+        finish();
+    }
+
+    public void clickExtras(View v) {
+        Intent intent = new Intent(ProgressActivity.this, ExtraActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();

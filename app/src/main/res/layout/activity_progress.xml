@@ -99,11 +99,11 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
-        android:id="@+id/contacts"
+        android:id="@+id/extra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/contacts"
-        android:onClick=""
+        android:onClick="clickExtras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.811"

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class AlertsActivity extends AppCompatActivity {
-    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+    ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
 
     @Override
@@ -20,7 +20,7 @@ public class AlertsActivity extends AppCompatActivity {
         progressButton = findViewById(R.id.progress);
         bmiButton = findViewById(R.id.bmi);
         alertsButton = findViewById(R.id.alerts);
-        contactsButton = findViewById(R.id.contacts);
+        extrasButton = findViewById(R.id.extra);
         settingsButton = findViewById(R.id.settings);
         logsButton = findViewById(R.id.logs);
 
@@ -75,5 +75,11 @@ public class AlertsActivity extends AppCompatActivity {
         finish();
     }
 
+    public void clickExtras(View v) {
+        Intent intent = new Intent(AlertsActivity.this, ExtraActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+        finish();
+    }
 
 }

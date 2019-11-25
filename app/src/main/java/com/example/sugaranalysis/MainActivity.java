@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+    ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
 
     ImageButton beforeBreakfastButton, afterBreakfastButton, beforeLunchButton, afterLunchButton,
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         progressButton = findViewById(R.id.progress);
         bmiButton = findViewById(R.id.bmi);
         alertsButton = findViewById(R.id.alerts);
-        contactsButton = findViewById(R.id.contacts);
+        extrasButton = findViewById(R.id.extra);
         settingsButton = findViewById(R.id.settings);
         logsButton = findViewById(R.id.logs);
 
@@ -260,6 +260,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickAlerts(View v) {
         Intent intent = new Intent(MainActivity.this, AlertsActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+    }
+
+    public void clickExtras(View v) {
+        Intent intent = new Intent(MainActivity.this, ExtraActivity.class);
         intent.setType("*/*");
         startActivity(intent);
     }

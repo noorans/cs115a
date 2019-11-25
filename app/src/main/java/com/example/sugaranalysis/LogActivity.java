@@ -17,7 +17,7 @@ import java.util.List;
 import static com.example.sugaranalysis.MainActivity.log;
 
 public class LogActivity extends AppCompatActivity {
-    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+    ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
 
     private RecyclerView recyclerView;
@@ -34,7 +34,7 @@ public class LogActivity extends AppCompatActivity {
         progressButton = findViewById(R.id.progress);
         bmiButton = findViewById(R.id.bmi);
         alertsButton = findViewById(R.id.alerts);
-        contactsButton = findViewById(R.id.contacts);
+        extrasButton = findViewById(R.id.extra);
         settingsButton = findViewById(R.id.settings);
         logsButton = findViewById(R.id.logs);
 
@@ -92,6 +92,13 @@ public class LogActivity extends AppCompatActivity {
 
     public void clickAlerts(View v) {
         Intent intent = new Intent(LogActivity.this, AlertsActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+        finish();
+    }
+
+    public void clickExtras(View v) {
+        Intent intent = new Intent(LogActivity.this, ExtraActivity.class);
         intent.setType("*/*");
         startActivity(intent);
         finish();
