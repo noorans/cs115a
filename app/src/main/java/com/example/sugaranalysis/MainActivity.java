@@ -19,6 +19,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -267,13 +268,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void addToDataBase(String bs, String moment){
         SharedPreferences myPreferences = getSharedPreferences("com.example.sugaranalysis_preferences", 0);
-        String date;
-        String time;
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss aa");
+        SimpleDateFormat timeformat = new SimpleDateFormat("hh:mm:ss aa");
 
+        String date = dateformat.format(c.getTime());
+        String time = timeformat.format(c.getTime());
         String height = myPreferences.getString("userHeight","");
         String weight = myPreferences.getString("userWeight", "");
-        date = "11/21/2019";
-        time = "6:00pm";
         log.addEntry(bs,moment,date,time,height,weight);
     }
 }
