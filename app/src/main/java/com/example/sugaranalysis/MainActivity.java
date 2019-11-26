@@ -18,11 +18,13 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView progressButton, bmiButton, alertsButton, contactsButton,
+    ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
 
     ImageButton beforeBreakfastButton, afterBreakfastButton, beforeLunchButton, afterLunchButton,
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     String timeToCompare;
     boolean check;
     public static LogDB log;
+    Calendar cal = Calendar.getInstance();
 
 
     @Override
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         progressButton = findViewById(R.id.progress);
         bmiButton = findViewById(R.id.bmi);
         alertsButton = findViewById(R.id.alerts);
-        contactsButton = findViewById(R.id.contacts);
+        extrasButton = findViewById(R.id.extra);
         settingsButton = findViewById(R.id.settings);
         logsButton = findViewById(R.id.logs);
 
@@ -264,6 +267,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void clickExtras(View v) {
+        Intent intent = new Intent(MainActivity.this, ExtraActivity.class);
+        intent.setType("*/*");
+        startActivity(intent);
+    }
+
 
     public void addToDataBase(String bs, String moment){
         SharedPreferences myPreferences = getSharedPreferences("com.example.sugaranalysis_preferences", 0);
@@ -272,7 +281,10 @@ public class MainActivity extends AppCompatActivity {
 
         String height = myPreferences.getString("userHeight","");
         String weight = myPreferences.getString("userWeight", "");
-        date = "11/21/2019";
+        //date = "11/21/2019";
+        //System.out.println(cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US));
+        date = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
+        //date = String.valueOf(cal.get(Calendar.DAY_OF_WEEK));
         time = "6:00pm";
         log.addEntry(bs,moment,date,time,height,weight);
     }
