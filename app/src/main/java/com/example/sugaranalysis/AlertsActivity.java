@@ -2,7 +2,6 @@ package com.example.sugaranalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,13 +13,10 @@ import android.widget.Toast;
 
 import com.allyants.notifyme.NotifyMe;
 
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 public class AlertsActivity extends AppCompatActivity  {
     ImageView progressButton, bmiButton, alertsButton, extrasButton,
@@ -28,8 +24,7 @@ public class AlertsActivity extends AppCompatActivity  {
     ImageButton bb, ab, bl, al, bd, ad, bw, aw;
     EditText label, time;
     Button notifyButton;
-    String labels, times, setLabel;
-    int count  = 0;
+    String labels, times;
     Calendar now = Calendar.getInstance();
 
 
@@ -76,8 +71,6 @@ public class AlertsActivity extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
-
-
 
         //parseForTime(times);
 
@@ -172,35 +165,36 @@ public class AlertsActivity extends AppCompatActivity  {
     }
 
     public void parseForTime(String times) {
+        // military time
         SimpleDateFormat time = new SimpleDateFormat("HH:mm");
-        //String [] parts = times.split(" ");
-        //String am_or_pm = parts[1];
         Calendar now = Calendar.getInstance();
-        Date date = null;
+        Date date1 = null;
 
         try {
-           date = time.parse(times);
-
+           date1 = time.parse(times);
         }
         catch (ParseException e) {
             e.printStackTrace();
         }
-        int hours = date.getHours();
-        int mins =  date.getMinutes();
+        int hours = date1.getHours();
+        int mins =  date1.getMinutes();
 
+        // setting time
         now.set(Calendar.HOUR, hours);
         now.set(Calendar.MINUTE, mins);
+        now.set(Calendar.SECOND, Calendar.SECOND);
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("test","I am a String");
         NotifyMe notifyMe = new NotifyMe.Builder(getApplicationContext())
                 .title(labels)
-                .color(255,0,0,255)
-                .led_color(255,255,255,255)
-                .addAction(intent,"Snooze",false)
+                .content("Please check blood you blood sugar")
+                .color(27,129,225,0)
+                .led_color(89,180,248,0)
+                .addAction(new Intent(),"Snooze",false)
                 .key("test")
-                .time(now)
+                .time(now) // where time is set 
                 .addAction(new Intent(),"Dismiss",true,false)
                 .addAction(intent, "Home")
                 .large_icon(R.mipmap.ic_launcher_round)
