@@ -22,12 +22,9 @@ public class AlertsActivity extends AppCompatActivity  {
     ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
     ImageButton bb, ab, bl, al, bd, ad, bw, aw;
-    EditText label, time;
-    Button notifyButton;
+    EditText time;
     String labels, times;
     Calendar now = Calendar.getInstance();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
