@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 beforeBreakfastButton.setBackgroundResource(R.drawable.filled);
                 TextView bstext = findViewById(R.id.bbBS);
                 String bs = bstext.getText().toString();
-                String moment = beforeBreakfastBS.getText().toString();
+                String moment = beforeBreakfast.getText().toString();
                 System.out.println(bs + " ," + moment);
                 addToDataBase(bs, moment);
                 Toast.makeText(MainActivity.this, "ADDED", Toast.LENGTH_LONG).show();
@@ -276,16 +276,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void addToDataBase(String bs, String moment){
         SharedPreferences myPreferences = getSharedPreferences("com.example.sugaranalysis_preferences", 0);
-        String date;
-        String time;
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat dateformat = new SimpleDateFormat("MMM/dd/yyyy");
+        SimpleDateFormat timeformat = new SimpleDateFormat("hh:mm:ss aa");
+
+        String date;
+
+        //String date = "Date: " + dateformat.format(c.getTime());
+        String time = timeformat.format(c.getTime());
         String height = myPreferences.getString("userHeight","");
         String weight = myPreferences.getString("userWeight", "");
         //date = "11/21/2019";
         //System.out.println(cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US));
         date = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
         //date = String.valueOf(cal.get(Calendar.DAY_OF_WEEK));
-        time = "6:00pm";
+
         log.addEntry(bs,moment,date,time,height,weight);
     }
 }
