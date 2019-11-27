@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Sugar Analysis</string>
+
+    <!--TOPBAR-->
+    <string name="sugar_analysis">SUGAR ANALYSIS</string>
+    <string name="progress_label">PROGRESS</string>
+    <string name="bmi_label">BMI</string>
+    <string name="bell_label">ALERTS</string>
+    <string name="contact_label">CONTACTS</string>
+
+
+    <!--BMI ACTIVITY-->
+    <string name="weight">WEIGHT (LBS)</string>
+    <string name="height">HEIGHT (IN)</string>OBE
+    <string name="calculateBMI">CALCULATE BMI</string>
+    <string name="underweight">UNDERWEIGHT</string>
+    <string name="normal">NORMAL</string>
+    <string name="overweight">OVERWEIGHT</string>
+    <string name="obesity">OBESE</string>
+
+
+    <string-array name="pref_sex">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="pref_sex_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>
