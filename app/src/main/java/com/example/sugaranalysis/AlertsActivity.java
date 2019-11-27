@@ -194,7 +194,7 @@ public class AlertsActivity extends AppCompatActivity  {
                 .led_color(89,180,248,0)
                 .addAction(new Intent(),"Snooze",false)
                 .key("test")
-                .time(now) // where time is set 
+                .time(now) // where time is set
                 .addAction(new Intent(),"Dismiss",true,false)
                 .addAction(intent, "Home")
                 .large_icon(R.mipmap.ic_launcher_round)
