@@ -39,6 +39,7 @@ public class LogActivity extends AppCompatActivity {
         logsButton = findViewById(R.id.logs);
 
         logObjects = new ArrayList<>();
+        log.fillList(logObjects, "");
         recyclerView = (RecyclerView) findViewById((R.id.rvContacts));
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
