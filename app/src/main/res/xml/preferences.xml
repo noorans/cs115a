@@ -33,5 +33,17 @@
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="Sex" />
+    <EditTextPreference
+        android:key="userDoctName"
+        android:inputType="text"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:title="My Doctor's Name" />
+    <EditTextPreference
+        android:key="userDoctNum"
+        android:inputType="number"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:title="My Doctor's Number" />
 
 </PreferenceScreen>
