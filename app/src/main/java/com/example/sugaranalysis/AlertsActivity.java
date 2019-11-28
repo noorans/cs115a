@@ -22,7 +22,8 @@ public class AlertsActivity extends AppCompatActivity  {
     ImageView progressButton, bmiButton, alertsButton, extrasButton,
             settingsButton, logsButton, homeButton;
     ImageButton bb, ab, bl, al, bd, ad, bw, aw;
-    EditText time;
+    EditText label, time;
+    Button notifyButton;
     String labels, times;
     Calendar now = Calendar.getInstance();
 
@@ -78,18 +79,18 @@ public class AlertsActivity extends AppCompatActivity  {
                 times = time.getText().toString();
                 labels = "Before Breakfast";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME BEFORE BREAKFAST", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET BEFORE BREAKFAST", Toast.LENGTH_LONG).show();
             }
         });
 
         ab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ab.setBackgroundResource(R.drawable.afb_filled);
+                ab.setBackgroundResource(R.drawable.ab_filled);
                 times = time.getText().toString();
                 labels = "After Breakfast";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME AFTER BREAKFAST", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET AFTER BREAKFAST", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -100,7 +101,7 @@ public class AlertsActivity extends AppCompatActivity  {
                 times = time.getText().toString();
                 labels = "Before Lunch";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME BEFORE LUNCH", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET BEFORE LUNCH", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -111,7 +112,7 @@ public class AlertsActivity extends AppCompatActivity  {
                 times = time.getText().toString();
                 labels = "After Lunch";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME AFTER LUNCH", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET AFTER LUNCH", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -122,7 +123,7 @@ public class AlertsActivity extends AppCompatActivity  {
                 times = time.getText().toString();
                 labels = "Before Dinner";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME BEFORE DINNER", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET BEFORE DINNER", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -133,7 +134,7 @@ public class AlertsActivity extends AppCompatActivity  {
                 times = time.getText().toString();
                 labels = "After Dinner";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME AFTER DINNER", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET AFTER DINNER", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -144,7 +145,7 @@ public class AlertsActivity extends AppCompatActivity  {
                 times = time.getText().toString();
                 labels = "Before Workout";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME BEFORE WORKOUT", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET BEFORE WORKOUT", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -155,7 +156,7 @@ public class AlertsActivity extends AppCompatActivity  {
                 times = time.getText().toString();
                 labels = "After Workout";
                 parseForTime(times);
-                Toast.makeText(AlertsActivity.this, "SET TIME AFTER WORKOUT", Toast.LENGTH_LONG).show();
+                Toast.makeText(AlertsActivity.this, "NOTIFICATION SET AFTER WORKOUT", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -168,18 +169,17 @@ public class AlertsActivity extends AppCompatActivity  {
         Date date1 = null;
 
         try {
-           date1 = time.parse(times);
-        }
-        catch (ParseException e) {
+            date1 = time.parse(times);
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         int hours = date1.getHours();
-        int mins =  date1.getMinutes();
+        int mins = date1.getMinutes();
 
         // setting time
-        now.set(Calendar.HOUR, hours);
+        now.set(Calendar.HOUR_OF_DAY, hours);
         now.set(Calendar.MINUTE, mins);
-        now.set(Calendar.SECOND, Calendar.SECOND);
+        now.set(Calendar.SECOND, 0);
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -189,7 +189,6 @@ public class AlertsActivity extends AppCompatActivity  {
                 .content("Please check blood you blood sugar")
                 .color(27,129,225,0)
                 .led_color(89,180,248,0)
-                .addAction(new Intent(),"Snooze",false)
                 .key("test")
                 .time(now) // where time is set
                 .addAction(new Intent(),"Dismiss",true,false)
