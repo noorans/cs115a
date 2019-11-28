@@ -2,6 +2,8 @@ package com.example.sugaranalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,7 @@ public class AlertsActivity extends AppCompatActivity  {
     ImageButton bb, ab, bl, al, bd, ad, bw, aw;
     EditText label, time;
     Button notifyButton;
-    String labels, times;
+    String times;
     Calendar now = Calendar.getInstance();
 
 
@@ -79,7 +81,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 bb.setBackgroundResource(R.drawable.bb_filled);
                 times = time.getText().toString();
-                labels = "Before Breakfast";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME BEFORE BREAKFAST", Toast.LENGTH_LONG).show();
             }
@@ -90,7 +91,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 ab.setBackgroundResource(R.drawable.afb_filled);
                 times = time.getText().toString();
-                labels = "After Breakfast";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME AFTER BREAKFAST", Toast.LENGTH_LONG).show();
             }
@@ -101,7 +101,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 bl.setBackgroundResource(R.drawable.bl_filled);
                 times = time.getText().toString();
-                labels = "Before Lunch";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME BEFORE LUNCH", Toast.LENGTH_LONG).show();
             }
@@ -112,7 +111,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 al.setBackgroundResource(R.drawable.al_filled);
                 times = time.getText().toString();
-                labels = "After Lunch";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME AFTER LUNCH", Toast.LENGTH_LONG).show();
             }
@@ -123,7 +121,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 bd.setBackgroundResource(R.drawable.bd_filled);
                 times = time.getText().toString();
-                labels = "Before Dinner";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME BEFORE DINNER", Toast.LENGTH_LONG).show();
             }
@@ -134,7 +131,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 ad.setBackgroundResource(R.drawable.ad_filled);
                 times = time.getText().toString();
-                labels = "After Dinner";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME AFTER DINNER", Toast.LENGTH_LONG).show();
             }
@@ -145,7 +141,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 bw.setBackgroundResource(R.drawable.bw_filled);
                 times = time.getText().toString();
-                labels = "Before Workout";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME BEFORE WORKOUT", Toast.LENGTH_LONG).show();
             }
@@ -156,7 +151,6 @@ public class AlertsActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 aw.setBackgroundResource(R.drawable.aw_filled);
                 times = time.getText().toString();
-                labels = "After Workout";
                 parseForTime(times);
                 Toast.makeText(AlertsActivity.this, "SET TIME AFTER WORKOUT", Toast.LENGTH_LONG).show();
             }
@@ -184,21 +178,26 @@ public class AlertsActivity extends AppCompatActivity  {
         now.set(Calendar.MINUTE, mins);
         now.set(Calendar.SECOND, Calendar.SECOND);
 
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("test","I am a String");
-        NotifyMe notifyMe = new NotifyMe.Builder(getApplicationContext())
-                .title(labels)
-                .content("Please check blood you blood sugar")
-                .color(27,129,225,0)
-                .led_color(89,180,248,0)
-                .addAction(new Intent(),"Snooze",false)
-                .key("test")
-                .time(now) // where time is set
-                .addAction(new Intent(),"Dismiss",true,false)
-                .addAction(intent, "Home")
-                .large_icon(R.mipmap.ic_launcher_round)
-                .build();
+//        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent.putExtra("test","I am a String");
+//        NotifyMe notifyMe = new NotifyMe.Builder(getApplicationContext())
+//                .title(labels)
+//                .content("Please check blood you blood sugar")
+//                .color(27,129,225,0)
+//                .led_color(89,180,248,0)
+//                .addAction(new Intent(),"Snooze",false)
+//                .key("test")
+//                .time(now) // where time is set
+//                .addAction(new Intent(),"Dismiss",true,false)
+//                .addAction(intent, "Home")
+//                .large_icon(R.mipmap.ic_launcher_round)
+//                .build();
+
+        Intent intent = new Intent(getApplicationContext(), Notification_receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,now.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
     }
 
     // start new activity to view progress activity
