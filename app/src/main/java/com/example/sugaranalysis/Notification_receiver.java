@@ -22,6 +22,8 @@ public class Notification_receiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(android.R.drawable.arrow_up_float)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentTitle("Blood Sugar Tracker")
                 .setContentText("Please check your blood sugar")
                 .setAutoCancel(true);
