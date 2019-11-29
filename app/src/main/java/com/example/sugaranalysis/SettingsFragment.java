@@ -14,6 +14,8 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
     public static String PREFERENCE_HEIGHT = "userHeight";
     public static String PREFERENCE_WEIGHT = "userWeight";
     public static String PREFERENCE_SEX = "userSex";
+    public static String PREFERENCE_DNAME = "userDoctName";
+    public static String PREFERENCE_DNUM = "userDoctNum";
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -31,6 +33,8 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         setPrefSummaryHeight(sharedPrefs);
         setPrefSummaryWeight(sharedPrefs);
         setPrefSummarySex(sharedPrefs);
+        setPrefSummaryDoctorName(sharedPrefs);
+        setPrefSummaryDoctorNum(sharedPrefs);
     }
 
 
@@ -57,6 +61,18 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         String weight = sharedPrefs.getString(PREFERENCE_WEIGHT, "0");
         Preference weightPref = findPreference(PREFERENCE_WEIGHT);
         weightPref.setSummary(weight);
+    }
+    private void setPrefSummaryDoctorName(SharedPreferences sharedPrefs)
+    {
+        String DoctorName = sharedPrefs.getString(PREFERENCE_DNAME, "0");
+        Preference DoctorNamePref = findPreference(PREFERENCE_DNAME);
+        DoctorNamePref.setSummary(DoctorName);
+    }
+    private void setPrefSummaryDoctorNum(SharedPreferences sharedPrefs)
+    {
+        String DoctorNum = sharedPrefs.getString(PREFERENCE_DNUM, "0");
+        Preference DoctorNumPref = findPreference(PREFERENCE_DNUM);
+        DoctorNumPref.setSummary(DoctorNum);
     }
     private void setPrefSummarySex(SharedPreferences sharedPrefs)
     {
@@ -91,6 +107,12 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         }
         else if (key.equals(PREFERENCE_WEIGHT)) {
             setPrefSummaryWeight(sharedPreferences);
+        }
+        else if (key.equals(PREFERENCE_DNAME)) {
+            setPrefSummaryDoctorName(sharedPreferences);
+        }
+        else if (key.equals(PREFERENCE_DNUM)) {
+            setPrefSummaryDoctorNum(sharedPreferences);
         }
         else if (key.equals(PREFERENCE_SEX)) {
             setPrefSummarySex(sharedPreferences);
