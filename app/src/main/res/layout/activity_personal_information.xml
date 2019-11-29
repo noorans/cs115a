@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="303dp"
-        android:layout_height="269dp"
+        android:layout_width="298dp"
+        android:layout_height="260dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/PI_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/sugar_title"
@@ -28,10 +28,10 @@
         android:src="@drawable/title_sugar_analysis"
         app:layout_constraintBottom_toTopOf="@+id/PI_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.036" />
+
 
     <TextView
         android:id="@+id/caption"
@@ -47,88 +47,71 @@
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/sugar_title"
-        app:layout_constraintVertical_bias="0.023" />
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/PI_name"
         android:layout_width="295dp"
         android:layout_height="54dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="316dp"
         android:background="@drawable/boxes"
         android:ems="10"
         android:gravity="center"
+        android:hint="Name"
         android:inputType="textPersonName"
         android:textColor="@color/colorDarkBlue"
-        app:layout_constraintBottom_toTopOf="@+id/PI_height"
+        app:layout_constraintBottom_toTopOf="@+id/PI_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Name" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/PI_age"
         android:layout_width="295dp"
         android:layout_height="54dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="232dp"
-        android:layout_marginEnd="136dp"
         android:background="@drawable/boxes"
         android:ems="10"
         android:gravity="center"
+        android:hint="Age"
         android:inputType="textPersonName"
         android:textColor="@color/colorDarkBlue"
-        app:layout_constraintBottom_toTopOf="@+id/PI_save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PI_name"
-        app:layout_constraintVertical_bias="0.931"
-        tools:text="Age" />
+        app:layout_constraintTop_toBottomOf="@+id/PI_weight"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/PI_height"
         android:layout_width="295dp"
         android:layout_height="54dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="428dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/boxes"
         android:ems="10"
         android:gravity="center"
+        android:hint="Height"
         android:inputType="textPersonName"
         android:textColor="@color/colorDarkBlue"
-        app:layout_constraintBottom_toTopOf="@+id/PI_weight"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Height" />
+        app:layout_constraintTop_toBottomOf="@+id/PI_name"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/PI_weight"
         android:layout_width="295dp"
         android:layout_height="54dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="200dp"
         android:background="@drawable/boxes"
         android:ems="10"
         android:gravity="center"
+        android:hint="Weight"
         android:inputType="textPersonName"
         android:textColor="@color/colorDarkBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:text="Weight" />
+        app:layout_constraintTop_toBottomOf="@+id/PI_height"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/PI_DoctName"
@@ -140,15 +123,14 @@
         android:background="@drawable/boxes"
         android:ems="10"
         android:gravity="center"
+        android:hint="Doctor's Name"
         android:inputType="textPersonName"
-        android:textColor="@color/colorDarkBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:text="My Doctor's Name" />
+        app:layout_constraintVertical_bias="0.947" />
 
     <EditText
         android:id="@+id/PI_DoctNum"
@@ -159,15 +141,14 @@
         android:background="@drawable/boxes"
         android:ems="10"
         android:gravity="center"
+        android:hint="Doctor's Number"
         android:inputType="textPersonName"
-        android:textColor="@color/colorDarkBlue"
-        app:layout_constraintBottom_toTopOf="@+id/PI_DoctName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774"
-        tools:text="My Doctor's Number" />
+        app:layout_constraintVertical_bias="0.855" />
 
     <ImageButton
         android:id="@+id/PI_save"
@@ -176,11 +157,12 @@
         android:layout_marginStart="160dp"
         android:layout_marginEnd="163dp"
         android:background="@drawable/save"
+        android:onClick="saveInformation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PI_DoctNum"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="0.686" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

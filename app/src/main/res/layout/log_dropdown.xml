@@ -14,19 +14,27 @@
 
         <TextView
             android:id="@+id/moment"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/colorDarkBlue"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/date"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="8dp"
             android:layout_width="140dp"
+            android:textColor="@color/colorDarkBlue"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/time"
+            android:layout_marginTop="5dp"
             android:layout_width="140dp"
+            android:textColor="@color/colorDarkBlue"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
@@ -39,20 +47,28 @@
         <TextView
             android:id="@+id/bloodsugar"
             android:layout_width="140dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/colorDarkBlue"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             android:id="@+id/height"
+            android:layout_marginLeft="8dp"
             android:layout_width="140dp"
+            android:textColor="@color/colorDarkBlue"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             android:id="@+id/weight"
             android:layout_width="140dp"
+            android:textColor="@color/colorDarkBlue"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"/>
     </LinearLayout>
 
 </LinearLayout>
