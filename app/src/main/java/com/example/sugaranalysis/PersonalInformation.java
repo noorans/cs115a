@@ -3,12 +3,20 @@ package com.example.sugaranalysis;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class PersonalInformation extends AppCompatActivity {
+    public static String myName = "";
+    public static String myAge = "";
+    public static String myHeight = "";
+    public static String myWeight = "";
+    public static String myDocName = "";
+    public static String myDocNum = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +36,39 @@ public class PersonalInformation extends AppCompatActivity {
 
     public void saveInformation(View view)
     {
+        //final String PERSONALINFORMATIONPREFS = "defaultPersonalInformation";
+        //SharedPreferences sharedPI = getSharedPreferences(PERSONALINFORMATIONPREFS, 0);
+        //SharedPreferences.Editor PIEditor = sharedPI.edit();
+
         TextView nameText = findViewById(R.id.PI_name);
-        String myName = nameText.getText().toString();
+        myName = nameText.getText().toString();
+        //PIEditor.putString("NAME", myName);
+        //PIEditor.apply();
+
         TextView ageText = findViewById(R.id.PI_age);
-        String myAge = nameText.getText().toString();
+        myAge = nameText.getText().toString();
+        //PIEditor.putString("AGE", myAge);
+        //PIEditor.apply();
+
         TextView heightText = findViewById(R.id.PI_height);
-        String myHeight = nameText.getText().toString();
+        myHeight = nameText.getText().toString();
+        //PIEditor.putString("HEIGHT", myHeight);
+        //PIEditor.apply();
+
         TextView weightText = findViewById(R.id.PI_weight);
-        String myWeight = nameText.getText().toString();
+        myWeight = nameText.getText().toString();
+        //PIEditor.putString("WEIGHT", myWeight);
+        //PIEditor.apply();
+
         TextView docnameText = findViewById(R.id.PI_DoctName);
-        String myDocName = nameText.getText().toString();
+        myDocName = nameText.getText().toString();
+        //PIEditor.putString("DOCNAME", myDocName);
+        //PIEditor.apply();
+
         TextView docnumText = findViewById(R.id.PI_DoctNum);
-        String myDocNum = nameText.getText().toString();
-
-
+        myDocNum = nameText.getText().toString();
+        //PIEditor.putString("DOCNUM", myDocNum);
+        //PIEditor.apply();
 
         Intent switcher = new Intent(this,MainActivity.class);
         startActivity(switcher);
