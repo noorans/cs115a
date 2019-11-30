@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
 
     // start new activity to view main activity
     public void clickHome(View v) {
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        Intent intent = new Intent(MainActivity.this, PersonalInformation.class);
         intent.setType("*/*");
         startActivity(intent);
 
