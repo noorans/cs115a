@@ -18,7 +18,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import static com.example.sugaranalysis.MainActivity.log;
+import static com.example.sugaranalysis.MainActivity.logDB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -134,13 +134,13 @@ public class ProgressActivity extends AppCompatActivity {
 
         boolean check = currentTime.equals(timeToCompare);
 
-       log.fillList(theMon, "Mon");
-       log.fillList(theTue, "Tue");
-       log.fillList(theWed, "Wed");
-       log.fillList(theThu, "Thu");
-       log.fillList(theFri, "Fri");
-       log.fillList(theSat, "Sat");
-       log.fillList(theSun, "Sun");
+       logDB.fillList(theMon, "Mon");
+       logDB.fillList(theTue, "Tue");
+       logDB.fillList(theWed, "Wed");
+       logDB.fillList(theThu, "Thu");
+       logDB.fillList(theFri, "Fri");
+       logDB.fillList(theSat, "Sat");
+       logDB.fillList(theSun, "Sun");
 
        theData.add(new Data("MON", getAvg(theMon)));
        theData.add(new Data("TUE", getAvg(theTue)));

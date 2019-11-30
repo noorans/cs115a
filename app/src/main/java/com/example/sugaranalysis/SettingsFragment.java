@@ -38,43 +38,43 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
     }
 
 
-    private void setPrefSummaryName(SharedPreferences sharedPrefs)
+    public void setPrefSummaryName(SharedPreferences sharedPrefs)
     {
         String name = sharedPrefs.getString(PREFERENCE_NAME, "NO NAME ENTERED");
         Preference namePref = findPreference(PREFERENCE_NAME);
         namePref.setSummary(name);
     }
-    private void setPrefSummaryAge(SharedPreferences sharedPrefs)
+    public void setPrefSummaryAge(SharedPreferences sharedPrefs)
     {
         String age = sharedPrefs.getString(PREFERENCE_AGE, "0");
         Preference agePref = findPreference(PREFERENCE_AGE);
         agePref.setSummary(age);
     }
-    private void setPrefSummaryHeight(SharedPreferences sharedPrefs)
+    public void setPrefSummaryHeight(SharedPreferences sharedPrefs)
     {
         String height = sharedPrefs.getString(PREFERENCE_HEIGHT, "0");
         Preference heightPref = findPreference(PREFERENCE_HEIGHT);
         heightPref.setSummary(height);
     }
-    private void setPrefSummaryWeight(SharedPreferences sharedPrefs)
+    public void setPrefSummaryWeight(SharedPreferences sharedPrefs)
     {
         String weight = sharedPrefs.getString(PREFERENCE_WEIGHT, "0");
         Preference weightPref = findPreference(PREFERENCE_WEIGHT);
         weightPref.setSummary(weight);
     }
-    private void setPrefSummaryDoctorName(SharedPreferences sharedPrefs)
+    public void setPrefSummaryDoctorName(SharedPreferences sharedPrefs)
     {
         String DoctorName = sharedPrefs.getString(PREFERENCE_DNAME, "0");
         Preference DoctorNamePref = findPreference(PREFERENCE_DNAME);
         DoctorNamePref.setSummary(DoctorName);
     }
-    private void setPrefSummaryDoctorNum(SharedPreferences sharedPrefs)
+    public void setPrefSummaryDoctorNum(SharedPreferences sharedPrefs)
     {
         String DoctorNum = sharedPrefs.getString(PREFERENCE_DNUM, "0");
         Preference DoctorNumPref = findPreference(PREFERENCE_DNUM);
         DoctorNumPref.setSummary(DoctorNum);
     }
-    private void setPrefSummarySex(SharedPreferences sharedPrefs)
+    public void setPrefSummarySex(SharedPreferences sharedPrefs)
     {
         String sex = sharedPrefs.getString(PREFERENCE_SEX, "1");
         String[] sexList = getResources().getStringArray(R.array.pref_sex);
