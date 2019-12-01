@@ -14,7 +14,7 @@ import com.example.sugaranalysis.Objects.LogObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.sugaranalysis.MainActivity.log;
+import static com.example.sugaranalysis.MainActivity.logDB;
 
 public class LogActivity extends AppCompatActivity {
     ImageView progressButton, bmiButton, alertsButton, extrasButton,
@@ -39,7 +39,7 @@ public class LogActivity extends AppCompatActivity {
         logsButton = findViewById(R.id.logs);
 
         logObjects = new ArrayList<>();
-        log.fillList(logObjects, "");
+        logDB.fillList(logObjects, "");
         recyclerView = (RecyclerView) findViewById((R.id.rvContacts));
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

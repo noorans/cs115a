@@ -3,10 +3,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-//import android.view.Menu;
-//import android.view.MenuInflater;
-//import android.view.MenuItem;
 
+import android.util.Log;
 import android.view.View;
 
 import android.widget.EditText;
@@ -39,20 +37,37 @@ public class MainActivity extends AppCompatActivity {
     String currentTime;
     String timeToCompare;
     boolean check;
-    public static LogDB log;
+    public static LogDB logDB;
     Calendar cal = Calendar.getInstance();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+
+        final String PREFS_NAME = "MyPrefsFile";
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+        if (settings.getBoolean("my_first_time", true)) {
+            //the app is being launched for first time, do something
+            Log.d("Comments", "First time");
+
+            // first time task
+            Intent intent = new Intent(MainActivity.this, PersonalInformation.class);
+            startActivity(intent);
+
+            // record the fact that the app has been started at least once
+            settings.edit().putBoolean("my_first_time", false).commit();
+        }
+
+            super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         currentTime = new SimpleDateFormat("HH:mm:ss").format(new Date());
         timeToCompare = "00:00:00";
 
         // instanciating the database
-        log = new LogDB(this,LogDB.DB_NAME, null, 1);
+        logDB = new LogDB(this,LogDB.DB_NAME, null, 1);
 
 
         // buttons/icons
@@ -292,6 +307,6 @@ public class MainActivity extends AppCompatActivity {
         date = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
         //date = String.valueOf(cal.get(Calendar.DAY_OF_WEEK));
 
-        log.addEntry(bs,moment,date,time,height,weight);
+        logDB.addEntry(bs,moment,date,time,height,weight);
     }
 }
