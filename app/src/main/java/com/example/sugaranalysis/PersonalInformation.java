@@ -46,27 +46,27 @@ public class PersonalInformation extends AppCompatActivity {
         //PIEditor.apply();
 
         TextView ageText = findViewById(R.id.PI_age);
-        myAge = nameText.getText().toString();
+        myAge = ageText.getText().toString();
         //PIEditor.putString("AGE", myAge);
         //PIEditor.apply();
 
         TextView heightText = findViewById(R.id.PI_height);
-        myHeight = nameText.getText().toString();
+        myHeight = heightText.getText().toString();
         //PIEditor.putString("HEIGHT", myHeight);
         //PIEditor.apply();
 
         TextView weightText = findViewById(R.id.PI_weight);
-        myWeight = nameText.getText().toString();
+        myWeight = weightText.getText().toString();
         //PIEditor.putString("WEIGHT", myWeight);
         //PIEditor.apply();
 
         TextView docnameText = findViewById(R.id.PI_DoctName);
-        myDocName = nameText.getText().toString();
+        myDocName = docnameText.getText().toString();
         //PIEditor.putString("DOCNAME", myDocName);
         //PIEditor.apply();
 
         TextView docnumText = findViewById(R.id.PI_DoctNum);
-        myDocNum = nameText.getText().toString();
+        myDocNum = docnumText.getText().toString();
         //PIEditor.putString("DOCNUM", myDocNum);
         //PIEditor.apply();
 
